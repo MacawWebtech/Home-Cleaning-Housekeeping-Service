@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Cleaning Services – Cleanora Home Cleaning</title>
+  <meta name="description" content="Explore Cleanora's complete range of home cleaning, deep cleaning, room-by-room sanitization, and housekeeping plans. Instant booking in INR (&#8377;).">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/motion.css">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon-32.png">
+  <link rel="shortcut icon" href="assets/images/logo/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/logo/apple-touch-icon.png">
+  <meta name="theme-color" content="#C6FF00">
+</head>
+<body class="page-services">
+
+
+  <!-- Primary Header & Navigation (Mandatory Structure: Home | Services | About | Contact + Actions) -->
+  <header class="header-wrapper">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Cleanora Home Cleaning Homepage">
+        <span class="brand-logo-badge"><svg class="brand-logo-mark" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 3.6 3.4 14.6h3.3v10.9c0 .9.7 1.6 1.6 1.6h15.4c.9 0 1.6-.7 1.6-1.6V14.6h3.3z" fill="currentColor"/><path d="M16 14l1.6 4.2 4.2 1.6-4.2 1.6L16 25.6l-1.6-4.2-4.2-1.6 4.2-1.6z" fill="#C6FF00"/></svg></span>
+        <span>CLEANORA</span>
+        <span class="brand-tag">PRO</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link ">
+              Home
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </a>
+            <div class="dropdown-menu">
+              <a href="index.html" class="dropdown-item">
+                <span>Home 1</span>
+              </a>
+              <a href="index-2.html" class="dropdown-item">
+                <span>Home 2</span>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="services.html" class="nav-link active">
+              Services
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </a>
+            <div class="dropdown-menu">
+              <a href="services.html" class="dropdown-item">All Cleaning Services</a>
+              <a href="service-details.html" class="dropdown-item">Deep Home Cleaning</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="pricing.html" class="nav-link ">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link ">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link ">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button type="button" class="theme-toggle-btn nav-hide-tablet" aria-label="Toggle theme"></button>
+        <!-- RTL Toggle -->
+        <button type="button" class="rtl-toggle-btn nav-hide-tablet" aria-label="Toggle text direction">RTL</button>
+
+        <a href="login.html" class="btn btn-outline btn-sm nav-login-btn" aria-label="Customer Login">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Login</span>
+        </a>
+
+        <a href="booking.html" class="btn btn-lime btn-sm nav-hide-tablet" aria-label="Book a Cleaning Appointment">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          <span>Book a Cleaning</span>
+        </a>
+
+        <!-- Hamburger Toggle -->
+        <button type="button" class="mobile-nav-toggle" aria-label="Open mobile navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div>
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand-logo">
+          <span class="brand-logo-badge"><svg class="brand-logo-mark" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 3.6 3.4 14.6h3.3v10.9c0 .9.7 1.6 1.6 1.6h15.4c.9 0 1.6-.7 1.6-1.6V14.6h3.3z" fill="currentColor"/><path d="M16 14l1.6 4.2 4.2 1.6-4.2 1.6L16 25.6l-1.6-4.2-4.2-1.6 4.2-1.6z" fill="#C6FF00"/></svg></span>
+          <span>CLEANORA</span>
+        </a>
+        <button type="button" class="mobile-drawer-close" aria-label="Close navigation">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">Home 1</a></li>
+        <li><a href="index-2.html">Home 2</a></li>
+        <li class="mobile-has-sub open">
+          <button type="button" class="mobile-sub-toggle active" aria-expanded="true">Services <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <ul class="mobile-sub-links">
+            <li><a href="services.html" class="active">All Cleaning Services</a></li>
+            <li><a href="service-details.html">Deep Home Cleaning</a></li>
+          </ul>
+        </li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="mobile-drawer-footer">
+      <div class="drawer-tool"><span>Theme</span><button type="button" class="theme-toggle-btn" aria-label="Toggle theme"></button></div>
+      <div class="drawer-tool"><span>Text direction</span><button type="button" class="rtl-toggle-btn" aria-label="Toggle text direction">RTL</button></div>
+      <a href="booking.html" class="btn btn-lime btn-block">Book a Cleaning</a>
+    </div>
+  </div>
+
+
+<main>
+  <!-- Section 1: Hero -->
+  <section class="section-full bg-dark banner-hero reveal-on-scroll" data-banner="services" >
+    <div class="section-inner text-center" style="max-width: 800px;">
+      <span class="badge badge-lime animate-pulse" style="margin-bottom: 16px;">Professional Services Catalog</span>
+      <h1 style="color: #FFFFFF; margin-bottom: 20px;">Comprehensive Cleaning For Every Home</h1>
+      <p style="color: var(--color-gray-400); font-size: 1.15rem;">
+        Choose from our certified full-home packages or room-specific deep cleans. All with upfront flat-rate pricing in INR (&#8377;).
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 2: Category Filter Strip -->
+  <section class="section-full py-compact bg-light reveal-on-scroll" style="border-bottom: 1px solid var(--color-gray-200);">
+    <div class="section-inner" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+      <button type="button" class="btn btn-black btn-sm service-cat-btn" data-category="all">All Services (11)</button>
+      <button type="button" class="btn btn-outline btn-sm service-cat-btn" data-category="deep">Deep Cleaning</button>
+      <button type="button" class="btn btn-outline btn-sm service-cat-btn" data-category="room">Room Specific</button>
+      <button type="button" class="btn btn-outline btn-sm service-cat-btn" data-category="move">Move-In / Move-Out</button>
+      <button type="button" class="btn btn-outline btn-sm service-cat-btn" data-category="recurring">Recurring Plans</button>
+    </div>
+  </section>
+
+  <!-- Section 3: Services Grid (11 Services) -->
+  <section class="section-full reveal-on-scroll">
+    <div class="section-inner">
+      <div class="grid grid-3 stagger-container" id="services-grid-container">
+
+        <!-- 1. Deep Home Cleaning -->
+        <div class="service-card" data-category="deep">
+          <div class="service-card-media">
+            <span class="badge badge-lime service-card-badge">Most Booked</span>
+            <img src="assets/images/services/service-deep-clean.jpg" alt="Deep Home Cleaning">
+          </div>
+          <div class="service-card-body">
+            <div class="service-meta-row">
+              <span>&#9201; 4 - 6 Hours</span>
+              <span class="text-lime" style="font-weight: 800;">&#9733; 4.98</span>
+            </div>
+            <h3 class="service-title">Full Home Deep Cleaning</h3>
+            <p class="service-desc">Complete top-to-bottom scrub, motorized floor buffing, kitchen degreasing, and bathroom descaling.</p>
+            <div class="service-card-footer">
+              <div class="service-price-wrap">
+                <span class="service-price-label">Starts at</span>
+                <span class="service-price">&#8377;2,499</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <a href="service-details.html" class="btn btn-outline btn-sm">Details</a>
+                <a href="booking.html" class="btn btn-lime btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Regular Cleaning -->
+        <div class="service-card" data-category="deep">
+          <div class="service-card-media">
+            <span class="badge badge-black service-card-badge">Essential</span>
+            <img src="assets/images/services/service-regular-clean.jpg" alt="Regular Cleaning">
+          </div>
+          <div class="service-card-body">
+            <div class="service-meta-row">
+              <span>&#9201; 2 - 3 Hours</span>
+              <span style="font-weight: 800;">&#9733; 4.94</span>
+            </div>
+            <h3 class="service-title">Regular Home Cleaning</h3>
+            <p class="service-desc">Routine dust removal, floor wet mopping, kitchen surface wiping, and trash sanitization.</p>
+            <div class="service-card-footer">
+              <div class="service-price-wrap">
+                <span class="service-price-label">Starts at</span>
+                <span class="service-price">&#8377;1,499</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <a href="service-details.html" class="btn btn-outline btn-sm">Details</a>
+                <a href="booking.html" class="btn btn-black btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Kitchen Cleaning -->
+        <div class="service-card" data-category="room">
+          <div class="service-card-media">
+            <span class="badge badge-lime service-card-badge">Specialist</span>
+            <img src="assets/images/services/service-kitchen-clean.jpg" alt="Kitchen Deep Clean">
+          </div>
+          <div class="service-card-body">
+            <div class="service-meta-row">
+              <span>&#9201; 2.5 - 3 Hours</span>
+              <span class="text-lime" style="font-weight: 800;">&#9733; 4.97</span>
+            </div>
+            <h3 class="service-title">Kitchen Deep Degreasing</h3>
+            <p class="service-desc">Heavy oil &amp; grime removal from range hood filters, gas stoves, tile backsplash, and cabinet exteriors.</p>
+            <div class="service-card-footer">
+              <div class="service-price-wrap">
+                <span class="service-price-label">Starts at</span>
+                <span class="service-price">&#8377;1,199</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <a href="service-details.html" class="btn btn-outline btn-sm">Details</a>
+                <a href="booking.html" class="btn btn-lime btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Bathroom Cleaning -->
+        <div class="service-card" data-category="room">
+          <div class="service-card-media">
+            <span class="badge badge-outline service-card-badge">Sanitization</span>
+            <img src="assets/images/services/service-bathroom-clean.jpg" alt="Bathroom Sanitization">
+          </div>
+          <div class="service-card-body">
+            <div class="service-meta-row">
+              <span>&#9201; 1.5 - 2 Hours</span>
+              <span style="font-weight: 800;">&#9733; 4.96</span>
+            </div>
+            <h3 class="service-title">Bathroom Deep Sanitization</h3>
+            <p class="service-desc">Acid-free chemical descaling of hard water stains, grout bleaching, tap descaling, and toilet hygiene.</p>
+            <div class="service-card-footer">
+              <div class="service-price-wrap">
+                <span class="service-price-label">Starts at</span>
+                <span class="service-price">&#8377;799</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <a href="service-details.html" class="btn btn-outline btn-sm">Details</a>
+                <a href="booking.html" class="btn btn-black btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Full House Cleaning -->
+        <div class="service-card" data-category="deep">
+          <div class="service-card-media">
+            <span class="badge badge-lime service-card-badge">Deluxe</span>
+            <img src="assets/images/services/service-full-house.jpg" alt="Full House Cleaning">
+          </div>
+          <div class="service-card-body">
+            <div class="service-meta-row">
+              <span>&#9201; 6 - 8 Hours</span>
+              <span class="text-lime" style="font-weight: 800;">&#9733; 4.99</span>
+            </div>
+            <h3 class="service-title">Full House Makeover</h3>
+            <p class="service-desc">Designed for villas &amp; large apartments. Includes mechanized floor buffing and complete upholstery steam extraction.</p>
+            <div class="service-card-footer">
+              <div class="service-price-wrap">
+                <span class="service-price-label">Starts at</span>
+                <span class="service-price">&#8377;4,999</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <a href="service-details.html" class="btn btn-outline btn-sm">Details</a>
+                <a href="booking.html" class="btn btn-lime btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Move-In Cleaning -->
+        <div class="service-card" data-category="move">
+          <div class="service-card-media">
+            <span class="badge badge-black service-card-badge">Fresh Start</span>
+            <img src="assets/images/services/service-move-in.jpg" alt="Move-In Cleaning">
+          </div>
+          <div class="service-card-body">
+            <div class="service-meta-row">
+              <span>&#9201; 5 - 7 Hours</span>
+              <span style="font-weight: 800;">&#9733; 4.97</span>
+            </div>
+            <h3 class="service-title">Move-In Sanitization</h3>
+            <p class="service-desc">Sterilize every wardrobe, drawer, shelf, and floor before you unpack. Ensures your new home is 100% germ-free.</p>
+            <div class="service-card-footer">
+              <div class="service-price-wrap">
+                <span class="service-price-label">Starts at</span>
+                <span class="service-price">&#8377;3,999</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <a href="service-details.html" class="btn btn-outline btn-sm">Details</a>
+                <a href="booking.html" class="btn btn-black btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Move-Out Cleaning -->
+        <div class="service-card" data-category="move">
+          <div class="service-card-media">
+            <span class="badge badge-lime service-card-badge">Deposit Back</span>
+            <img src="assets/images/services/service-move-out.jpg" alt="Move-Out Cleaning">
+          </div>
+          <div class="service-card-body">
+            <div class="service-meta-row">
+              <span>&#9201; 5 - 7 Hours</span>
+              <span class="text-lime" style="font-weight: 800;">&#9733; 4.95</span>
+            </div>
+            <h3 class="service-title">Move-Out Clean (Deposit Guarantee)</h3>
+            <p class="service-desc">Landlord inspection ready. Detailed wall spot wipe, floor polish, and grease removal to secure your security deposit.</p>
+            <div class="service-card-footer">
+              <div class="service-price-wrap">
+                <span class="service-price-label">Starts at</span>
+                <span class="service-price">&#8377;3,799</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <a href="service-details.html" class="btn btn-outline btn-sm">Details</a>
+                <a href="booking.html" class="btn btn-lime btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Sofa & Carpet Steam Shampoo -->
+        <div class="service-card" data-category="room">
+          <div class="service-card-media">
+            <span class="badge badge-black service-card-badge">Upholstery</span>
+            <img src="assets/images/services/service-sofa-carpet.jpg" alt="Sofa and Carpet Care">
+          </div>
+          <div class="service-card-body">
+            <div class="service-meta-row">
+              <span>&#9201; 1.5 - 2 Hours</span>
+              <span style="font-weight: 800;">&#9733; 4.93</span>
+            </div>
+            <h3 class="service-title">Sofa &amp; Carpet Steam Shampoo</h3>
+            <p class="service-desc">Injection-extraction wet shampooing that removes deep pet dander, coffee stains, dust mites, and odors.</p>
+            <div class="service-card-footer">
+              <div class="service-price-wrap">
+                <span class="service-price-label">Starts at</span>
+                <span class="service-price">&#8377;999</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <a href="service-details.html" class="btn btn-outline btn-sm">Details</a>
+                <a href="booking.html" class="btn btn-black btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Window & Balcony Wash -->
+        <div class="service-card" data-category="room">
+          <div class="service-card-media">
+            <span class="badge badge-lime service-card-badge">High Pressure</span>
+            <img src="assets/images/services/service-window-balcony.jpg" alt="Balcony Wash">
+          </div>
+          <div class="service-card-body">
+            <div class="service-meta-row">
+              <span>&#9201; 1.5 - 2 Hours</span>
+              <span class="text-lime" style="font-weight: 800;">&#9733; 4.96</span>
+            </div>
+            <h3 class="service-title">Balcony &amp; Window Pressure Jet</h3>
+            <p class="service-desc">Pigeon droppings removal, high-pressure floor jet wash, glass streak-free polish, and sliding track vacuum.</p>
+            <div class="service-card-footer">
+              <div class="service-price-wrap">
+                <span class="service-price-label">Starts at</span>
+                <span class="service-price">&#8377;699</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <a href="service-details.html" class="btn btn-outline btn-sm">Details</a>
+                <a href="booking.html" class="btn btn-lime btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. Recurring Housekeeping -->
+        <div class="service-card" data-category="recurring">
+          <div class="service-card-media">
+            <span class="badge badge-lime service-card-badge">Save 20%</span>
+            <img src="assets/images/services/service-recurring.jpg" alt="Recurring Plans">
+          </div>
+          <div class="service-card-body">
+            <div class="service-meta-row">
+              <span>&#9201; Weekly / Biweekly</span>
+              <span class="text-lime" style="font-weight: 800;">&#9733; 4.99</span>
+            </div>
+            <h3 class="service-title">Recurring Housekeeping Plans</h3>
+            <p class="service-desc">Dedicated certified cleaner assigned to your home. Automatic weekly, bi-weekly, or monthly cleaning schedules.</p>
+            <div class="service-card-footer">
+              <div class="service-price-wrap">
+                <span class="service-price-label">Monthly from</span>
+                <span class="service-price">&#8377;4,999</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <a href="pricing.html" class="btn btn-outline btn-sm">Plans</a>
+                <a href="booking.html" class="btn btn-lime btn-sm">Subscribe</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. Office & Commercial -->
+        <div class="service-card" data-category="deep">
+          <div class="service-card-media">
+            <span class="badge badge-black service-card-badge">Workplace</span>
+            <img src="assets/images/services/service-commercial.jpg" alt="Commercial Clean">
+          </div>
+          <div class="service-card-body">
+            <div class="service-meta-row">
+              <span>&#9201; Flexible Hours</span>
+              <span style="font-weight: 800;">&#9733; 4.92</span>
+            </div>
+            <h3 class="service-title">Office &amp; Commercial Sanitization</h3>
+            <p class="service-desc">Workstation sanitization, pantry degreasing, conference room cleaning, and commercial floor scrub.</p>
+            <div class="service-card-footer">
+              <div class="service-price-wrap">
+                <span class="service-price-label">Starts at</span>
+                <span class="service-price">&#8377;3,499</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <a href="service-details.html" class="btn btn-outline btn-sm">Details</a>
+                <a href="contact.html" class="btn btn-black btn-sm">Inquire</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 12. Custom Quote CTA (fills the last grid slot) -->
+        <div class="service-card service-card-cta" data-category="cta" style="background: var(--color-black); border-color: var(--color-black-border); justify-content: center; align-items: center; text-align: center; padding: 36px 28px;">
+          <span class="badge badge-lime" style="margin-bottom: 18px;">Custom Quote</span>
+          <h3 style="color: #FFFFFF; font-size: 1.5rem; margin-bottom: 12px;">Need Something Custom?</h3>
+          <p style="color: #D4D4DA; font-size: 0.95rem; line-height: 1.65; margin-bottom: 24px; max-width: 300px;">Large homes, post-construction cleanup or a special schedule? Tell us what you need and get a free quote within 2 hours.</p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+            <a href="contact.html" class="btn btn-lime btn-sm">Get Free Quote</a>
+            <a href="tel:+15125550142" class="btn btn-outline-white btn-sm">Call Us</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3b: How It Works -->
+  <section class="section-full bg-light reveal-on-scroll">
+    <div class="section-inner">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Simple Process</span>
+        <h2 class="section-title">How Cleanora Works</h2>
+        <p class="section-description">From booking to a spotless home in four easy steps, with no calls, no haggling and no surprises.</p>
+      </div>
+      <div class="step-timeline">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <h4>Choose Your Service</h4>
+          <p>Pick a full-home package or a room-specific deep clean and see the flat-rate price in INR instantly.</p>
+        </div>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <h4>Select Date &amp; Time</h4>
+          <p>Book a slot that suits you, including early mornings, evenings and weekends, with free rescheduling.</p>
+        </div>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <h4>Verified Team Arrives</h4>
+          <p>A background-verified, uniformed team arrives on time with all equipment and eco-safe supplies.</p>
+        </div>
+        <div class="step-item">
+          <span class="step-num">4</span>
+          <h4>Inspect &amp; Pay</h4>
+          <p>Walk through the finished work with the team lead. Not satisfied? We re-clean within 48 hours for free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3c: Included With Every Booking -->
+  <section class="section-full reveal-on-scroll">
+    <div class="section-inner">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Peace Of Mind</span>
+        <h2 class="section-title">Included With Every Booking</h2>
+        <p class="section-description">Whichever package you choose, these promises come standard.</p>
+      </div>
+      <div class="grid grid-3 stagger-container">
+        <div class="feature-box flex-col-between">
+          <div>
+            <div class="badge badge-lime" style="margin-bottom: 12px;">Guarantee</div>
+            <h4 style="margin-bottom: 8px;">Free Re-Clean</h4>
+            <p style="font-size: 0.9rem; line-height: 1.6;">If any area is missed, we send the team back at no extra charge within 48 hours.</p>
+          </div>
+        </div>
+        <div class="feature-box flex-col-between">
+          <div>
+            <div class="badge badge-black" style="margin-bottom: 12px;">Trust</div>
+            <h4 style="margin-bottom: 8px;">Background-Checked Cleaners</h4>
+            <p style="font-size: 0.9rem; line-height: 1.6;">Every professional is ID-checked, background-checked and trained in.</p>
+          </div>
+        </div>
+        <div class="feature-box flex-col-between">
+          <div>
+            <div class="badge badge-lime" style="margin-bottom: 12px;">Pricing</div>
+            <h4 style="margin-bottom: 8px;">Transparent Flat Rates</h4>
+            <p style="font-size: 0.9rem; line-height: 1.6;">No hidden charges or surprise add-ons. The price you see at booking is the price.</p>
+          </div>
+        </div>
+        <div class="feature-box flex-col-between">
+          <div>
+            <div class="badge badge-black" style="margin-bottom: 12px;">Safety</div>
+            <h4 style="margin-bottom: 8px;">Pet &amp; Kid Safe Products</h4>
+            <p style="font-size: 0.9rem; line-height: 1.6;">Plant-based, low-odour cleaning solutions that are gentle on surfaces and safe.</p>
+          </div>
+        </div>
+        <div class="feature-box flex-col-between">
+          <div>
+            <div class="badge badge-lime" style="margin-bottom: 12px;">Cover</div>
+            <h4 style="margin-bottom: 8px;">Insured Service</h4>
+            <p style="font-size: 0.9rem; line-height: 1.6;">Accidental damage during the service is covered, so you can relax while we work.</p>
+          </div>
+        </div>
+        <div class="feature-box flex-col-between">
+          <div>
+            <div class="badge badge-black" style="margin-bottom: 12px;">Flexible</div>
+            <h4 style="margin-bottom: 8px;">Easy Rescheduling</h4>
+            <p style="font-size: 0.9rem; line-height: 1.6;">Change or cancel up to 4 hours before your slot at no cost from your.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 (NEW): The Cleanora Sanitization Equipment Standard -->
+  <section class="section-full bg-light reveal-on-scroll">
+    <div class="section-inner">
+      <div class="section-header text-center">
+        <span class="section-subtitle">Heavy-Duty Hardware</span>
+        <h2 class="section-title">The Equipment That Powers Every Cleaning</h2>
+        <p class="section-description">We bring dedicated commercial gear calibrated for residential surfaces to guarantee deep, lasting sanitization.</p>
+      </div>
+
+      <div class="spec-list">
+        <div class="spec-item">
+          <span class="spec-label">Flooring</span>
+          <h4>Single-Disc Buffer</h4>
+          <p>Lifts ground-in tile stains, restores marble gloss, and scrubs grout lines mechanically.</p>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Steam Tech</span>
+          <h4>140&deg;C Thermal Wand</h4>
+          <p>Destroys 99.9% of bacteria and dust mites in mattresses, sofas, and curtains without chemicals.</p>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Filtration</span>
+          <h4>HEPA Cyclonic Vacuum</h4>
+          <p>Traps microscopic allergen dust from window sliders, ceiling fans, and AC vents.</p>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Safety</span>
+          <h4>Bio-Enzyme Degreasers</h4>
+          <p>Plant-based, pet-safe formulations that dissolve hard water salts and kitchen oil effortlessly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5 (NEW): Service Selection Guide & Booking CTA -->
+  <section class="section-full bg-dark reveal-on-scroll">
+    <div class="section-inner text-center" style="max-width: 800px;">
+      <span class="badge badge-lime animate-pulse" style="margin-bottom: 16px;">100% Free Re-Clean Included</span>
+      <h2 style="color: #FFFFFF; margin-bottom: 16px;">Not Sure Which Package Is Right For You?</h2>
+      <p style="color: var(--color-gray-400); font-size: 1.1rem; margin-bottom: 30px; line-height: 1.7;">
+        Speak with a cleaning advisor or book our most popular <strong>Full Home Deep Cleaning</strong>. We guarantee you will be delighted or we re-clean for free.
+      </p>
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="booking.html" class="btn btn-lime btn-lg">Book Deep Cleaning Now &rarr;</a>
+        <a href="pricing.html" class="btn btn-outline-white btn-lg">View Price Comparison Table</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+  <!-- Complete Full-Width Footer -->
+  <footer class="footer-wrapper">
+    <div class="section-inner">
+      <div class="footer-top">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="color: #FFFFFF; margin-bottom: 16px;">
+            <span class="brand-logo-badge"><svg class="brand-logo-mark" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 3.6 3.4 14.6h3.3v10.9c0 .9.7 1.6 1.6 1.6h15.4c.9 0 1.6-.7 1.6-1.6V14.6h3.3z" fill="currentColor"/><path d="M16 14l1.6 4.2 4.2 1.6-4.2 1.6L16 25.6l-1.6-4.2-4.2-1.6 4.2-1.6z" fill="#C6FF00"/></svg></span>
+            <span>CLEANORA</span>
+            <span class="brand-tag">PRO</span>
+          </a>
+          <p style="color: var(--color-gray-400); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.7;">
+            America's most trusted home cleaning, housekeeping and deep sanitization service. ISO-certified hospital grade equipment, 100% background-verified staff, and guaranteed free re-clean.
+          </p>
+          <div style="display: flex; gap: 12px;">
+            <span class="badge badge-outline-lime">&#10003; 100% Background Checked</span>
+            <span class="badge badge-outline-lime">&#9733; 4.96/5.0 Rated</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Cleaning Services</h5>
+          <ul class="footer-links">
+            <li><a href="service-details.html">Full Home Deep Cleaning</a></li>
+            <li><a href="services.html">Kitchen Degreasing &amp; Scrub</a></li>
+            <li><a href="services.html">Bathroom Acid-Free Sanitization</a></li>
+            <li><a href="services.html">Move-In / Move-Out Cleaning</a></li>
+            <li><a href="services.html">Sofa &amp; Carpet Steam Shampoo</a></li>
+            <li><a href="services.html">Balcony Pressure Jet Wash</a></li>
+            <li><a href="pricing.html">Recurring Maid &amp; Housekeeping</a></li>
+          </ul>
+        </div>
+
+       
+        <div class="footer-col">
+          <h5>Quick Access</h5>
+          <ul class="footer-links">
+            <li><a href="about.html">About Cleanora Standards</a></li>
+            <li><a href="pricing.html">Transparent Flat-Rate Pricing</a></li>
+            <li><a href="team.html">Our Cleaning Professionals</a></li>
+            <li><a href="blog.html">Home Cleaning Tips &amp; Blog</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+            <li><a href="contact.html">Support &amp; Emergency Inquiry</a></li>
+            <li><a href="customer-dashboard/index.html">Customer Dashboard Demo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Get &#8377;300 Welcome Voucher</h5>
+          <p style="color: var(--color-gray-400); font-size: 0.9rem;">Subscribe to our seasonal deep clean alerts and receive an instant &#8377;300 discount code.</p>
+          <form class="newsletter-form" style="margin-top: 14px;">
+            <div style="display: flex; gap: 8px;">
+              <input type="email" class="footer-input" placeholder="Enter your email" required aria-label="Email address for voucher">
+              <button type="submit" class="btn btn-lime btn-sm">Claim</button>
+            </div>
+          </form>
+          <div style="margin-top: 20px; font-size: 0.85rem; color: var(--color-gray-400);">
+            <p style="margin-bottom: 4px;"><strong>Support Helpline:</strong> <span class="ltr-preserve">+1 (512) 555-0142</span></p>
+            <p><strong>Service Hours:</strong> Mon - Sun: 7:00 AM - 9:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Cleanora Home Cleaning Technologies Pvt Ltd. All rights reserved. Built with the strict Black, White &amp; Electric Lime design system.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="about.html">Privacy Policy</a>
+          <a href="about.html">Terms of Service</a>
+          <a href="faq.html">Cancellation Policy</a>
+          <a href="contact.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/rtl.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/motion.js"></script>
+<script src="assets/js/forms.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const catButtons = document.querySelectorAll('.service-cat-btn');
+    const cards = document.querySelectorAll('#services-grid-container .service-card');
+
+    catButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        catButtons.forEach(b => {
+          b.classList.remove('btn-black');
+          b.classList.add('btn-outline');
+        });
+        btn.classList.add('btn-black');
+        btn.classList.remove('btn-outline');
+
+        const cat = btn.getAttribute('data-category');
+        cards.forEach(card => {
+          if (cat === 'all' || card.getAttribute('data-category') === cat) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>

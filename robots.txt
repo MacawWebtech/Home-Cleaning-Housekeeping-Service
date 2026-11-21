@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /customer-dashboard/
+Disallow: /admin/
+
+Sitemap: https://cleanora-cleaning.com/sitemap.xml

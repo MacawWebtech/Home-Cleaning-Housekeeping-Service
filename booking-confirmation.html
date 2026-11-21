@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmed – Cleanora Home Cleaning</title>
+  <meta name="description" content="Your cleaning appointment is confirmed! View booking details, print receipt, or manage in your customer dashboard.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/motion.css">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon-32.png">
+  <link rel="shortcut icon" href="assets/images/logo/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/logo/apple-touch-icon.png">
+  <meta name="theme-color" content="#C6FF00">
+</head>
+<body>
+
+
+  <!-- Primary Header & Navigation (Mandatory Structure: Home | Services | About | Contact + Actions) -->
+  <header class="header-wrapper">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Cleanora Home Cleaning Homepage">
+        <span class="brand-logo-badge"><svg class="brand-logo-mark" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 3.6 3.4 14.6h3.3v10.9c0 .9.7 1.6 1.6 1.6h15.4c.9 0 1.6-.7 1.6-1.6V14.6h3.3z" fill="currentColor"/><path d="M16 14l1.6 4.2 4.2 1.6-4.2 1.6L16 25.6l-1.6-4.2-4.2-1.6 4.2-1.6z" fill="#C6FF00"/></svg></span>
+        <span>CLEANORA</span>
+        <span class="brand-tag">PRO</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link ">
+              Home
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </a>
+            <div class="dropdown-menu">
+              <a href="index.html" class="dropdown-item">
+                <span>Home 1</span>
+              </a>
+              <a href="index-2.html" class="dropdown-item">
+                <span>Home 2</span>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="services.html" class="nav-link active">
+              Services
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </a>
+            <div class="dropdown-menu">
+              <a href="services.html" class="dropdown-item">All Cleaning Services</a>
+              <a href="service-details.html" class="dropdown-item">Deep Home Cleaning</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="pricing.html" class="nav-link ">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link ">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link ">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button type="button" class="theme-toggle-btn nav-hide-tablet" aria-label="Toggle theme"></button>
+        <!-- RTL Toggle -->
+        <button type="button" class="rtl-toggle-btn nav-hide-tablet" aria-label="Toggle text direction">RTL</button>
+
+        <a href="login.html" class="btn btn-outline btn-sm nav-login-btn" aria-label="Customer Login">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Login</span>
+        </a>
+
+        <a href="booking.html" class="btn btn-lime btn-sm nav-hide-tablet" aria-label="Book a Cleaning Appointment">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          <span>Book a Cleaning</span>
+        </a>
+
+        <!-- Hamburger Toggle -->
+        <button type="button" class="mobile-nav-toggle" aria-label="Open mobile navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div>
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand-logo">
+          <span class="brand-logo-badge"><svg class="brand-logo-mark" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 3.6 3.4 14.6h3.3v10.9c0 .9.7 1.6 1.6 1.6h15.4c.9 0 1.6-.7 1.6-1.6V14.6h3.3z" fill="currentColor"/><path d="M16 14l1.6 4.2 4.2 1.6-4.2 1.6L16 25.6l-1.6-4.2-4.2-1.6 4.2-1.6z" fill="#C6FF00"/></svg></span>
+          <span>CLEANORA</span>
+        </a>
+        <button type="button" class="mobile-drawer-close" aria-label="Close navigation">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">Home 1</a></li>
+        <li><a href="index-2.html">Home 2</a></li>
+        <li class="mobile-has-sub">
+          <button type="button" class="mobile-sub-toggle" aria-expanded="false">Services <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <ul class="mobile-sub-links">
+            <li><a href="services.html">All Cleaning Services</a></li>
+            <li><a href="service-details.html">Deep Home Cleaning</a></li>
+          </ul>
+        </li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="mobile-drawer-footer">
+      <div class="drawer-tool"><span>Theme</span><button type="button" class="theme-toggle-btn" aria-label="Toggle theme"></button></div>
+      <div class="drawer-tool"><span>Text direction</span><button type="button" class="rtl-toggle-btn" aria-label="Toggle text direction">RTL</button></div>
+      <a href="booking.html" class="btn btn-lime btn-block">Book a Cleaning</a>
+    </div>
+  </div>
+
+
+<main>
+  <!-- Section 1: Confirmation Header Card -->
+  <section class="section-full reveal-on-scroll" style="padding-top: var(--space-16); padding-bottom: var(--space-12);">
+    <div class="section-inner" style="max-width: 760px;">
+      
+      <div style="background: var(--color-white); border: 2px solid var(--color-black); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg); text-align: center; margin-bottom: 24px;">
+        <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--color-lime); color: var(--color-black); font-size: 2.5rem; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 4px 20px var(--color-lime-glow);">
+          &#10003;
+        </div>
+        <span class="badge badge-lime animate-pulse" style="margin-bottom: 12px;">Appointment Confirmed</span>
+        <h1 style="font-size: 2.2rem; margin-bottom: 10px;">You're All Set for a Sparkling Home!</h1>
+        <p style="color: var(--color-gray-500); font-size: 1.05rem; margin-bottom: 24px;">
+          Booking Reference: <strong id="conf-ref-num" style="color: var(--color-black); font-size: 1.15rem; background: var(--color-gray-100); padding: 4px 10px; border-radius: 6px;">#STK-84920</strong>
+        </p>
+
+        <!-- Booking Details Breakdown -->
+        <div style="background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-lg); padding: 24px; text-align: left; margin-bottom: 28px;">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-gray-200); padding-bottom: 10px; margin-bottom: 10px;">
+            <span style="color: var(--color-gray-500);">Service &amp; Package:</span>
+            <span id="conf-service" style="font-weight: 800;">Full Home Deep Cleaning (Premium)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-gray-200); padding-bottom: 10px; margin-bottom: 10px;">
+            <span style="color: var(--color-gray-500);">Scheduled Date &amp; Time:</span>
+            <span id="conf-date" style="font-weight: 800;">Tomorrow (09:00 AM - 12:00 PM)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-gray-200); padding-bottom: 10px; margin-bottom: 10px;">
+            <span style="color: var(--color-gray-500);">Service Address:</span>
+            <span id="conf-address" style="font-weight: 700; max-width: 60%; text-align: right;">Apt 402, Green Glen Palms, East Austin, Austin, TX 78702</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-gray-200); padding-bottom: 10px; margin-bottom: 10px;">
+            <span style="color: var(--color-gray-500);">Total Estimated Price:</span>
+            <span id="conf-total" style="font-weight: 900; font-size: 1.25rem; color: var(--color-black);">&#8377;4,182 (Incl. Sales Tax)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: var(--color-gray-500);">Payment Status:</span>
+            <span class="status-pill status-pending">Pay After Service</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="customer-dashboard/bookings.html" class="btn btn-lime">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            <span>View in Customer Portal</span>
+          </a>
+          <button type="button" class="btn btn-outline btn-print-invoice" onclick="window.print()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+            <span>Print Confirmation Receipt</span>
+          </button>
+          <a href="index.html" class="btn btn-outline">Return to Home</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2 (NEW): What Happens Next Timeline -->
+  <section class="section-full bg-light reveal-on-scroll">
+    <div class="section-inner" style="max-width: 860px;">
+      <div class="section-header text-center">
+        <span class="section-subtitle">What Happens Next</span>
+        <h2 class="section-title">Your 3-Stage Service Timeline</h2>
+        <p class="section-description">Here is exactly what will happen between now and when your cleaning crew arrives.</p>
+      </div>
+
+      <div class="grid grid-3 stagger-container">
+        <div class="feature-box flex-col-between">
+          <div>
+            <div style="width: 40px; height: 40px; border-radius: var(--radius-md); background: var(--color-black); color: var(--color-lime); display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 14px;">1</div>
+            <h4 style="margin-bottom: 6px;">Crew Dispatch Alert</h4>
+            <p style="font-size: 0.85rem; color: var(--color-gray-500); line-height: 1.6;">You will receive an automated WhatsApp &amp; SMS notification with cleaner name, photo and contact 1 hour before arrival.</p>
+          </div>
+        </div>
+
+        <div class="feature-box flex-col-between">
+          <div>
+            <div style="width: 40px; height: 40px; border-radius: var(--radius-md); background: var(--color-black); color: var(--color-lime); display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 14px;">2</div>
+            <h4 style="margin-bottom: 6px;">On-Site Walkthrough</h4>
+            <p style="font-size: 0.85rem; color: var(--color-gray-500); line-height: 1.6;">The supervisor will walk through your rooms with you, note priority stain zones, and begin mechanized setup.</p>
+          </div>
+        </div>
+
+        <div class="feature-box flex-col-between">
+          <div>
+            <div style="width: 40px; height: 40px; border-radius: var(--radius-md); background: var(--color-black); color: var(--color-lime); display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 14px;">3</div>
+            <h4 style="margin-bottom: 6px;">Inspection &amp; Sign-Off</h4>
+            <p style="font-size: 0.85rem; color: var(--color-gray-500); line-height: 1.6;">Inspect all completed rooms with the supervisor against the 64-point list. Pay only when 100% delighted.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 (NEW): Assigned Cleaner Preview & Dispatch Details -->
+  <section class="section-full reveal-on-scroll">
+    <div class="section-inner" style="max-width: 860px;">
+      <div style="background: var(--color-white); border: 1.5px solid var(--color-gray-200); border-radius: var(--radius-lg); padding: 30px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <img src="assets/images/team/cleaner-1.jpg" alt="David Miller" style="width: 64px; height: 64px; border-radius: 50%; border: 2.5px solid var(--color-lime);">
+          <div>
+            <h4 style="margin-bottom: 2px;">Assigned Crew Lead: David Miller</h4>
+            <div style="font-size: 0.85rem; color: var(--color-gray-500);">Senior Deep Cleaning Specialist &bull; 940+ Cleanings &bull; 4.98 &#9733;</div>
+            <span class="badge badge-lime" style="margin-top: 4px;">Background Checked &bull; Academy Certified</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <a href="tel:+15125550142" class="btn btn-outline btn-sm">Call Dispatch Helpline</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 (NEW): Homeowner Preparation Checklist -->
+  <section class="section-full bg-light reveal-on-scroll">
+    <div class="section-inner" style="max-width: 860px;">
+      <h3 style="margin-bottom: 16px;">Quick Preparation Checklist</h3>
+      <div class="grid grid-2 stagger-container">
+        <div style="background: var(--color-white); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); padding: 20px;">
+          <h4 style="margin-bottom: 8px;">&#128274; Keep Valuables Safe</h4>
+          <p style="font-size: 0.875rem; color: var(--color-gray-500); margin: 0;">Please keep cash, jewelry, and delicate electronic gadgets safely stored away in locked drawers.</p>
+        </div>
+        <div style="background: var(--color-white); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); padding: 20px;">
+          <h4 style="margin-bottom: 8px;">&#128167; Continuous Utilities</h4>
+          <p style="font-size: 0.875rem; color: var(--color-gray-500); margin: 0;">Ensure functional tap water and electricity for high-pressure machine buffer connections.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5 (NEW): Help & Customer Portal CTA -->
+  <section class="section-full bg-dark reveal-on-scroll">
+    <div class="section-inner text-center" style="max-width: 760px;">
+      <h3 style="color: #FFFFFF; font-size: 1.8rem; margin-bottom: 12px;">Need To Make Changes To This Appointment?</h3>
+      <p style="color: var(--color-gray-400); font-size: 1rem; margin-bottom: 24px;">
+        You can reschedule your date, update your address, or add specialized services anytime inside the customer portal.
+      </p>
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="customer-dashboard/bookings.html" class="btn btn-lime">Manage in Customer Dashboard &rarr;</a>
+        <a href="faq.html" class="btn btn-outline-white">Read Booking FAQs</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+  <!-- Complete Full-Width Footer -->
+  <footer class="footer-wrapper">
+    <div class="section-inner">
+      <div class="footer-top">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="color: #FFFFFF; margin-bottom: 16px;">
+            <span class="brand-logo-badge"><svg class="brand-logo-mark" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 3.6 3.4 14.6h3.3v10.9c0 .9.7 1.6 1.6 1.6h15.4c.9 0 1.6-.7 1.6-1.6V14.6h3.3z" fill="currentColor"/><path d="M16 14l1.6 4.2 4.2 1.6-4.2 1.6L16 25.6l-1.6-4.2-4.2-1.6 4.2-1.6z" fill="#C6FF00"/></svg></span>
+            <span>CLEANORA</span>
+            <span class="brand-tag">PRO</span>
+          </a>
+          <p style="color: var(--color-gray-400); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.7;">
+            America's most trusted home cleaning, housekeeping and deep sanitization service. ISO-certified hospital grade equipment, 100% background-verified staff, and guaranteed free re-clean.
+          </p>
+          <div style="display: flex; gap: 12px;">
+            <span class="badge badge-outline-lime">&#10003; 100% Background Checked</span>
+            <span class="badge badge-outline-lime">&#9733; 4.96/5.0 Rated</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Cleaning Services</h5>
+          <ul class="footer-links">
+            <li><a href="service-details.html">Full Home Deep Cleaning</a></li>
+            <li><a href="services.html">Kitchen Degreasing &amp; Scrub</a></li>
+            <li><a href="services.html">Bathroom Acid-Free Sanitization</a></li>
+            <li><a href="services.html">Move-In / Move-Out Cleaning</a></li>
+            <li><a href="services.html">Sofa &amp; Carpet Steam Shampoo</a></li>
+            <li><a href="services.html">Balcony Pressure Jet Wash</a></li>
+            <li><a href="pricing.html">Recurring Maid &amp; Housekeeping</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Access</h5>
+          <ul class="footer-links">
+            <li><a href="about.html">About Cleanora Standards</a></li>
+            <li><a href="pricing.html">Transparent Flat-Rate Pricing</a></li>
+            <li><a href="team.html">Our Cleaning Professionals</a></li>
+            <li><a href="blog.html">Home Cleaning Tips &amp; Blog</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+            <li><a href="contact.html">Support &amp; Emergency Inquiry</a></li>
+            <li><a href="customer-dashboard/index.html">Customer Dashboard Demo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Get &#8377;300 Welcome Voucher</h5>
+          <p style="color: var(--color-gray-400); font-size: 0.9rem;">Subscribe to our seasonal deep clean alerts and receive an instant &#8377;300 discount code.</p>
+          <form class="newsletter-form" style="margin-top: 14px;">
+            <div style="display: flex; gap: 8px;">
+              <input type="email" class="footer-input" placeholder="Enter your email" required aria-label="Email address for voucher">
+              <button type="submit" class="btn btn-lime btn-sm">Claim</button>
+            </div>
+          </form>
+          <div style="margin-top: 20px; font-size: 0.85rem; color: var(--color-gray-400);">
+            <p style="margin-bottom: 4px;"><strong>Support Helpline:</strong> <span class="ltr-preserve">+1 (512) 555-0142</span></p>
+            <p><strong>Service Hours:</strong> Mon - Sun: 7:00 AM - 9:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Cleanora Home Cleaning Technologies Pvt Ltd. All rights reserved. Built with the strict Black, White &amp; Electric Lime design system.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="about.html">Privacy Policy</a>
+          <a href="about.html">Terms of Service</a>
+          <a href="faq.html">Cancellation Policy</a>
+          <a href="contact.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/rtl.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/motion.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('ref');
+    if (ref) {
+      const el = document.getElementById('conf-ref-num');
+      if (el) el.textContent = '#' + ref;
+    }
+
+    const saved = localStorage.getItem('cleanora_latest_booking');
+    if (saved) {
+      try {
+        const b = JSON.parse(saved);
+        if (b.referenceNumber) document.getElementById('conf-ref-num').textContent = '#' + b.referenceNumber;
+        if (b.customer && b.customer.address) document.getElementById('conf-address').textContent = b.customer.address;
+        if (b.scheduledDate) document.getElementById('conf-date').textContent = `${b.scheduledDate} (${b.timeSlot})`;
+        if (b.pricing && b.pricing.total) document.getElementById('conf-total').textContent = `₹${b.pricing.total.toLocaleString('en-IN')} (Incl. Sales Tax)`;
+      } catch (e) {}
+    }
+  });
+</script>
+</body>
+</html>
