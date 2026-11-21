@@ -1,0 +1,408 @@
+/* ==========================================================================
+   CLEANORA - PREMIUM MOTION LAYER - motion.css
+   GPU-only properties (transform / opacity), 60fps, fully disabled under
+   prefers-reduced-motion. Brand colours only: Black / White / Electric Lime.
+   ========================================================================== */
+
+:root {
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ---- 1. Page enter ---------------------------------------------------- */
+@keyframes mPageIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+body {
+  animation: mPageIn 0.7s var(--ease-smooth) both;
+}
+
+/* ---- 2. Scroll progress bar ------------------------------------------- */
+.m-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #C6FF00 0%, #E6FF70 100%);
+  box-shadow: 0 0 14px rgba(198, 255, 0, 0.65);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: 1200;
+  pointer-events: none;
+  will-change: transform;
+}
+
+[dir="rtl"] .m-progress {
+  transform-origin: 100% 50%;
+}
+
+/* ---- 3. Smart header: glass on scroll, hides on scroll-down ----------- */
+.header-wrapper {
+  transition: transform 0.5s var(--ease-expo),
+              box-shadow 0.35s ease,
+              background-color 0.35s ease,
+              backdrop-filter 0.35s ease;
+}
+
+.header-wrapper.scrolled {
+  background-color: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: saturate(1.5) blur(16px);
+  backdrop-filter: saturate(1.5) blur(16px);
+}
+
+[data-theme="dark"] .header-wrapper.scrolled {
+  background-color: rgba(17, 17, 17, 0.78);
+}
+
+.header-wrapper.m-hide {
+  transform: translateY(-100%);
+}
+
+/* Nav links: lime underline grows from the centre, label lifts slightly */
+.nav-link {
+  transition: transform 0.35s var(--ease-expo), color 0.25s ease;
+}
+
+.nav-link:hover {
+  transform: translateY(-1px);
+}
+
+/* ---- 4. Hero choreography --------------------------------------------- */
+@keyframes mRise {
+  from { opacity: 0; transform: translate3d(0, 34px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes mWordUp {
+  from { transform: translate3d(0, 112%, 0) rotate(3deg); }
+  to   { transform: translate3d(0, 0, 0) rotate(0); }
+}
+
+@keyframes mFloat {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -12px; }
+}
+
+@keyframes mGlowPulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.9;  transform: scale(1.08); }
+}
+
+@keyframes mShimmer {
+  0%   { transform: translateX(-120%) skewX(-18deg); }
+  60%, 100% { transform: translateX(260%) skewX(-18deg); }
+}
+
+.m-hero-item {
+  opacity: 0;
+  animation: mRise 0.95s var(--ease-expo) forwards;
+  animation-delay: calc(var(--d, 0) * 110ms + 180ms);
+}
+
+/* Split-text headings: words slide up out of a mask */
+.m-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+.m-word-inner {
+  display: inline-block;
+  transform: translate3d(0, 112%, 0) rotate(3deg);
+  transform-origin: 0 100%;
+  will-change: transform;
+}
+
+.m-split.m-in .m-word-inner {
+  animation: mWordUp 0.95s var(--ease-expo) forwards;
+  animation-delay: calc(var(--w, 0) * 55ms + var(--base, 0ms));
+}
+
+/* Hero artwork: gentle float + mouse parallax tilt + breathing glow */
+.m-hero-art {
+  position: relative;
+  perspective: 1100px;
+}
+
+.m-hero-art > img {
+  transform: translate3d(var(--px, 0px), var(--py, 0px), 0) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.25s ease-out;
+  animation: mFloat 7s ease-in-out infinite;
+  will-change: transform, translate;
+}
+
+.m-hero-art::before {
+  content: "";
+  position: absolute;
+  inset: 8% 6%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(198, 255, 0, 0.28), transparent 70%);
+  filter: blur(30px);
+  animation: mGlowPulse 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Cursor-following lime aura inside dark hero */
+.m-hero-host {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.m-hero-aura {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 560px;
+  height: 560px;
+  margin: -280px 0 0 -280px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(198, 255, 0, 0.16), transparent 70%);
+  transform: translate3d(var(--ax, 50vw), var(--ay, 30%), 0);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.m-hero-host > .section-inner,
+.m-hero-host > .hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Badge shimmer sweep */
+.m-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.m-shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  animation: mShimmer 4.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ---- 5. Scroll reveal (upgrades existing classes) ---------------------- */
+.reveal-on-scroll {
+  transform: translate3d(0, 46px, 0);
+  transition: opacity 1s var(--ease-expo), transform 1s var(--ease-expo);
+}
+
+.reveal-on-scroll.is-revealed {
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal-on-scroll[data-reveal="left"]  { transform: translate3d(-60px, 0, 0); }
+.reveal-on-scroll[data-reveal="right"] { transform: translate3d(60px, 0, 0); }
+.reveal-on-scroll[data-reveal="zoom"]  { transform: scale(0.94); }
+
+.reveal-on-scroll[data-reveal].is-revealed {
+  transform: none;
+}
+
+/* Auto-staggered grid items (JS tags them, then removes tags when done) */
+.m-item {
+  opacity: 0;
+  transform: translate3d(0, 44px, 0) scale(0.97);
+  transition: opacity 0.9s var(--ease-expo), transform 0.9s var(--ease-expo) !important;
+}
+
+.m-item.m-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition-delay: calc(var(--i, 0) * 90ms) !important;
+}
+
+/* Dashboard table rows slide in */
+@keyframes mRowIn {
+  from { opacity: 0; transform: translate3d(-14px, 0, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+.dashboard-table tbody tr.m-row {
+  opacity: 0;
+  animation: mRowIn 0.6s var(--ease-expo) forwards;
+  animation-delay: calc(var(--i, 0) * 60ms + 200ms);
+}
+
+[dir="rtl"] .dashboard-table tbody tr.m-row {
+  animation-name: mRowInRtl;
+}
+
+@keyframes mRowInRtl {
+  from { opacity: 0; transform: translate3d(14px, 0, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* ---- 6. Cards: tilt, lift and cursor spotlight ------------------------ */
+.m-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.m-card.m-tilting {
+  transition: transform 0.12s ease-out, box-shadow 0.35s var(--ease-expo), border-color 0.25s ease !important;
+}
+
+.m-card:not(.m-tilting) {
+  transition: transform 0.6s var(--ease-expo), box-shadow 0.35s var(--ease-expo), border-color 0.25s ease;
+}
+
+.m-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(198, 255, 0, 0.18), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.m-card:hover > .m-glow {
+  opacity: 1;
+}
+
+[data-theme="dark"] .m-glow {
+  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(198, 255, 0, 0.12), transparent 55%);
+}
+
+/* Service imagery: slow zoom on card hover */
+.service-card-media {
+  overflow: hidden;
+}
+
+.service-card-media img {
+  transition: transform 0.9s var(--ease-expo);
+}
+
+.service-card:hover .service-card-media img {
+  transform: scale(1.07);
+}
+
+/* ---- 8. FAQ, icons, small delights ------------------------------------- */
+.faq-icon {
+  transition: transform 0.45s var(--ease-spring), background-color 0.25s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(135deg);
+}
+
+.service-checklist li svg,
+.pricing-features li > :first-child {
+  transition: transform 0.4s var(--ease-spring);
+}
+
+.service-card:hover .service-checklist li svg {
+  transform: scale(1.18) rotate(-6deg);
+}
+
+.sidebar-link {
+  transition: transform 0.35s var(--ease-expo), background-color 0.25s ease, color 0.25s ease;
+}
+
+.sidebar-link:hover {
+  transform: translateX(5px);
+}
+
+[dir="rtl"] .sidebar-link:hover {
+  transform: translateX(-5px);
+}
+
+.testimonial-avatar,
+.brand-logo-badge {
+  transition: transform 0.5s var(--ease-spring);
+}
+
+.brand-logo:hover .brand-logo-badge {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.chart-bar {
+  transform-origin: 50% 100%;
+}
+
+.m-bar {
+  animation: mBarGrow 1.1s var(--ease-expo) both;
+  animation-delay: calc(var(--i, 0) * 90ms + 250ms);
+}
+
+@keyframes mBarGrow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+.m-count {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- 9. Theme switch: circular reveal (View Transitions API) ---------- */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }
+
+html.m-theme-fade *,
+html.m-theme-fade *::before,
+html.m-theme-fade *::after {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease,
+              fill 0.5s ease, stroke 0.5s ease, box-shadow 0.5s ease !important;
+}
+
+/* ---- 10. Reduced motion: everything calm and instant ------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .m-item,
+  .m-hero-item,
+  .m-word-inner,
+  .dashboard-table tbody tr.m-row {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .m-progress,
+  .m-hero-aura,
+  .m-glow {
+    display: none !important;
+  }
+}
+
+/* Touch / small screens: keep it light */
+@media (hover: none), (max-width: 767px) {
+  .m-hero-aura,
+  .m-glow {
+    display: none;
+  }
+
+  .m-hero-art > img {
+    animation-duration: 9s;
+  }
+}

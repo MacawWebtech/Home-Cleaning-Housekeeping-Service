@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none">
+  <circle cx="100" cy="100" r="90" fill="#111111" stroke="#111111" stroke-width="2"/>
+  <circle cx="100" cy="100" r="75" stroke="#C6FF00" stroke-dasharray="6 6" stroke-width="1.5" stroke-opacity="0.4"/>
+  <circle cx="100" cy="100" r="45" fill="#111111" stroke="#C6FF00" stroke-width="3"/>
+  <text x="100" y="112" text-anchor="middle" fill="#C6FF00" font-family="'Manrope', sans-serif" font-size="34" font-weight="800">4</text>
+  <circle cx="155" cy="50" r="14" fill="#C6FF00"/>
+  <path d="M150 50 L154 54 L161 46" stroke="#111111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,668 @@
+/* ==========================================================================
+   CLEANORA HOME CLEANING & HOUSEKEEPING SERVICE TEMPLATE
+   Dashboard Stylesheet - dashboard.css
+   Customer Dashboard & Admin Dashboard Architecture
+   Strict Brand Colours: Black (#111111), White (#FFFFFF), Electric Lime (#C6FF00)
+   ========================================================================== */
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--color-gray-50);
+  color: var(--color-black);
+  width: 100%;
+}
+
+/* Sidebar Styles */
+.dashboard-sidebar {
+  width: 270px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-right: 1px solid var(--color-black-border);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  padding: var(--space-6) var(--space-5);
+  border-bottom: 1px solid var(--color-black-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.sidebar-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  background-color: var(--color-lime);
+  color: var(--color-black);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sidebar-nav {
+  padding: var(--space-4) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.sidebar-section-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gray-500);
+  padding: var(--space-4) var(--space-3) var(--space-2) var(--space-3);
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 10px 14px;
+  color: var(--color-gray-400);
+  font-weight: 600;
+  font-size: 0.925rem;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  position: relative;
+}
+
+.sidebar-link:hover {
+  background-color: var(--color-black-light);
+  color: var(--color-white);
+  padding-left: 18px;
+}
+
+.sidebar-link.active {
+  background-color: var(--color-lime);
+  color: var(--color-black) !important;
+  font-weight: 800;
+}
+
+.sidebar-link.active .sidebar-icon {
+  color: var(--color-black);
+}
+
+.sidebar-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.sidebar-badge-count {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  background: var(--color-black-border);
+  color: var(--color-white);
+}
+
+.sidebar-link.active .sidebar-badge-count {
+  background: var(--color-black);
+  color: var(--color-lime);
+}
+
+.sidebar-footer {
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-black-border);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-black-light);
+}
+
+.user-avatar-sm {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--color-lime);
+}
+
+.user-meta-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.user-meta-role {
+  font-size: 0.75rem;
+  color: var(--color-gray-400);
+}
+
+/* Main Dashboard Content Area */
+.dashboard-main {
+  margin-left: 270px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: calc(100% - 270px);
+}
+
+/* Dashboard Topbar */
+.dashboard-topbar {
+  height: 72px;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-8);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.sidebar-toggle-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-sm);
+  padding: 8px;
+  cursor: pointer;
+  color: var(--color-black);
+}
+
+.topbar-page-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.topbar-search-box {
+  display: flex;
+  align-items: center;
+  background: var(--color-gray-100);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  padding: 6px 14px;
+  gap: 8px;
+}
+
+.topbar-search-input {
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-black);
+  outline: none;
+  width: 220px;
+}
+
+/* Content Container */
+.dashboard-content {
+  padding: var(--space-8);
+  flex-grow: 1;
+  max-width: var(--max-content-width);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* KPI Cards Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.kpi-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card:hover {
+  border-color: var(--color-black);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.kpi-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.kpi-title {
+  font-size: 0.825rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-gray-500);
+  letter-spacing: 0.05em;
+}
+
+.kpi-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--color-black);
+  color: var(--color-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kpi-value {
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: var(--color-black);
+  margin-bottom: var(--space-2);
+}
+
+.kpi-trend {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-gray-700);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.kpi-trend-highlight {
+  color: var(--color-black);
+  background: var(--color-lime);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 800;
+}
+
+/* Clean Dashboard Tables */
+.table-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-8);
+}
+
+.table-card-header {
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--color-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.925rem;
+}
+
+.dashboard-table th {
+  background-color: var(--color-gray-100);
+  padding: 12px 18px;
+  font-weight: 700;
+  color: var(--color-black);
+  border-bottom: 1px solid var(--color-gray-200);
+  font-size: 0.825rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.dashboard-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--color-gray-200);
+  color: var(--color-gray-700);
+  vertical-align: middle;
+}
+
+.dashboard-table tr:hover td {
+  background-color: var(--color-gray-50);
+  color: var(--color-black);
+}
+
+.dashboard-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Appointment Widget (Customer Dashboard) */
+.appointment-banner {
+  background: var(--color-black);
+  color: var(--color-white);
+  border: 2px solid var(--color-lime);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+  position: relative;
+  overflow: hidden;
+}
+
+.appointment-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background: radial-gradient(circle at top right, var(--color-lime-glow), transparent 70%);
+  pointer-events: none;
+}
+
+.appointment-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.appointment-time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-lime);
+  color: var(--color-black);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+  font-size: 0.85rem;
+  width: fit-content;
+}
+
+/* Clean Dashboard CSS Charts */
+.chart-container {
+  height: 240px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-4);
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-4);
+  border-bottom: 2px solid var(--color-gray-200);
+}
+
+.chart-bar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.chart-bar {
+  width: 100%;
+  max-width: 44px;
+  background: var(--color-black);
+  border-radius: 6px 6px 0 0;
+  transition: height 0.4s ease, background 0.2s ease;
+  position: relative;
+}
+
+.chart-bar:hover {
+  background: var(--color-lime);
+}
+
+.chart-bar.active {
+  background: var(--color-lime);
+}
+
+.chart-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-gray-500);
+}
+
+/* ==========================================================================
+   ALIGNMENT SYSTEM (v2) - dashboard layer
+   ========================================================================== */
+
+/* Icon buttons in the topbar (support inbox etc.) share the toggle look */
+.topbar-icon-btn {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-gray-300);
+  background: var(--color-white);
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.topbar-icon-btn:hover {
+  background-color: var(--color-gray-100);
+  border-color: var(--color-black);
+}
+
+[data-theme="dark"] .topbar-icon-btn {
+  background-color: #1A1A1A;
+  border-color: #333333;
+  color: #C6FF00;
+}
+
+/* Topbar: title never pushes controls off-screen */
+.topbar-left {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.topbar-page-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+.topbar-right {
+  flex: 0 0 auto;
+  gap: var(--space-3);
+}
+
+.topbar-right .btn {
+  white-space: nowrap;
+}
+
+/* Sidebar: icon, label and badge share one centre line */
+.sidebar-link {
+  align-items: center;
+}
+
+.sidebar-link > span:not(.sidebar-icon):not(.sidebar-badge-count) {
+  flex: 1 1 auto;
+  min-width: 0;
+  line-height: 1.3;
+}
+
+.sidebar-icon,
+.sidebar-badge-count {
+  flex-shrink: 0;
+}
+
+.sidebar-footer > div {
+  min-width: 0;
+}
+
+.user-meta-name,
+.user-meta-role {
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-avatar-sm {
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+/* KPI cards: equal columns, equal heights, aligned value baselines */
+.kpi-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.kpi-card {
+  height: 100%;
+}
+
+.kpi-card-header {
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.kpi-title {
+  line-height: 1.35;
+}
+
+.kpi-icon-wrap {
+  flex-shrink: 0;
+}
+
+.kpi-value {
+  line-height: 1.1;
+  margin-top: auto;
+}
+
+.kpi-trend {
+  flex-wrap: wrap;
+  line-height: 1.4;
+}
+
+/* Table cards: header row aligned, table scrolls inside its card */
+.table-card-header {
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.table-card-title {
+  line-height: 1.3;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.dashboard-table {
+  min-width: 720px;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+  padding: 14px 18px;
+  text-align: left;
+}
+
+.dashboard-table th:first-child,
+.dashboard-table td:first-child {
+  white-space: nowrap;
+}
+
+.dashboard-table th:last-child,
+.dashboard-table td:last-child {
+  text-align: right;
+}
+
+.dashboard-table td:last-child > * {
+  vertical-align: middle;
+}
+
+.dashboard-table th[style*="text-align: center"],
+.dashboard-table td[style*="text-align: center"] {
+  text-align: center !important;
+}
+
+[dir="rtl"] .dashboard-table th,
+[dir="rtl"] .dashboard-table td {
+  text-align: right;
+}
+
+[dir="rtl"] .dashboard-table th:last-child,
+[dir="rtl"] .dashboard-table td:last-child {
+  text-align: left;
+}
+
+.status-pill {
+  white-space: nowrap;
+  line-height: 1.2;
+  min-height: 26px;
+}
+
+.cleaner-assign-select {
+  min-width: 170px;
+  max-width: 100%;
+}
+
+/* Appointment banner: text block and CTA align on one axis */
+.appointment-banner {
+  gap: var(--space-6);
+}
+
+.appointment-info {
+  min-width: 0;
+}
+
+.appointment-info > * {
+  margin-bottom: 0;
+}
+
+/* Dashboard card grids built inline stay equal-height */
+.dashboard-content .grid {
+  align-items: stretch;
+}
+
+.dashboard-content .grid > * {
+  min-width: 0;
+}

@@ -1,0 +1,423 @@
+/* ==========================================================================
+   CLEANORA HOME CLEANING & HOUSEKEEPING SERVICE TEMPLATE
+   Dark Mode Stylesheet - dark-mode.css
+   Strict Brand Colors in Dark Theme:
+   Base Dark: #111111, Card Dark: #1E1E1E, Accent: #C6FF00, Text: #FFFFFF
+   ========================================================================== */
+
+[data-theme="dark"] {
+  --color-white: #111111;
+  --color-black: #FFFFFF;
+  --color-black-light: #1A1A1A;
+  --color-black-card: #202020;
+  --color-black-border: #2E2E2E;
+
+  --color-gray-50: #141414;
+  --color-gray-100: #1C1C1C;
+  --color-gray-200: #262626;
+  --color-gray-300: #383838;
+  --color-gray-400: #7E7E86;
+  --color-gray-500: #9E9EA5;
+  --color-gray-700: #D0D0D5;
+  --color-gray-800: #EAEAEA;
+
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] body {
+  background-color: #111111;
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .header-wrapper {
+  background-color: #111111;
+  border-bottom-color: #262626;
+}
+
+[data-theme="dark"] .brand-logo {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .nav-link {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .dropdown-menu {
+  background-color: #1A1A1A;
+  border-color: #333333;
+}
+
+[data-theme="dark"] .dropdown-item {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .dropdown-item:hover {
+  background-color: #262626;
+}
+
+[data-theme="dark"] .theme-toggle-btn,
+[data-theme="dark"] .rtl-toggle-btn {
+  background-color: #1A1A1A;
+  border-color: #333333;
+  color: #C6FF00;
+}
+
+[data-theme="dark"] .mobile-nav-toggle {
+  border-color: #333333;
+}
+
+[data-theme="dark"] .mobile-nav-toggle span {
+  background-color: #FFFFFF;
+}
+
+[data-theme="dark"] .mobile-nav-drawer {
+  background-color: #111111;
+  border-left-color: #262626;
+}
+
+[data-theme="dark"] .mobile-drawer-header {
+  border-bottom-color: #262626;
+}
+
+[data-theme="dark"] .mobile-drawer-close {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .mobile-nav-links a {
+  color: #FFFFFF;
+  border-bottom-color: #1F1F1F;
+}
+
+/* Dark Mode Components */
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .testimonial-card,
+[data-theme="dark"] .pricing-card:not(.featured),
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .kpi-card,
+[data-theme="dark"] .table-card,
+[data-theme="dark"] .modal-box {
+  background-color: #1A1A1A;
+  border-color: #2A2A2A;
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .service-title,
+[data-theme="dark"] .service-price,
+[data-theme="dark"] .pricing-amount,
+[data-theme="dark"] .faq-header,
+[data-theme="dark"] .kpi-value,
+[data-theme="dark"] .table-card-title,
+[data-theme="dark"] .modal-title {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .service-checklist li,
+[data-theme="dark"] .pricing-features li,
+[data-theme="dark"] .author-name {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .service-card-footer,
+[data-theme="dark"] .table-card-header,
+[data-theme="dark"] .modal-header,
+[data-theme="dark"] .modal-footer {
+  border-color: #2A2A2A;
+}
+
+[data-theme="dark"] .modal-footer {
+  background-color: #161616;
+}
+
+[data-theme="dark"] .modal-close {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .dashboard-layout {
+  background-color: #111111;
+}
+
+[data-theme="dark"] .dashboard-topbar {
+  background-color: #111111;
+  border-bottom-color: #262626;
+}
+
+[data-theme="dark"] .topbar-page-title {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .topbar-search-box {
+  background-color: #1E1E1E;
+  border-color: #333333;
+}
+
+[data-theme="dark"] .topbar-search-input {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .dashboard-table th {
+  background-color: #161616;
+  color: #FFFFFF;
+  border-bottom-color: #2A2A2A;
+}
+
+[data-theme="dark"] .dashboard-table td {
+  border-bottom-color: #222222;
+  color: #C0C0C5;
+}
+
+[data-theme="dark"] .dashboard-table tr:hover td {
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .form-control {
+  background-color: #1A1A1A;
+  border-color: #333333;
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .form-control:focus {
+  border-color: #C6FF00;
+}
+
+[data-theme="dark"] .form-label {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .btn-outline {
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .btn-outline:hover {
+  background-color: #FFFFFF;
+  color: #111111;
+}
+
+[data-theme="dark"] .btn-black {
+  background-color: #262626;
+  border-color: #383838;
+}
+
+[data-theme="dark"] .badge-outline {
+  border-color: #444444;
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   DARK MODE v2 - brand-consistent contrast
+   Dark mode inverts the --color-white / --color-black tokens, which is right
+   for light surfaces but wrong for surfaces that are dark BY DESIGN (hero,
+   process, footer, sidebar, featured plan, chips) and for text on lime.
+   Those scopes restore the original brand tokens so every descendant (even
+   inline styles) resolves to Black #111111 / White #FFFFFF / Lime #C6FF00.
+   ========================================================================== */
+
+/* 1. Always-dark surfaces: original tokens restored in scope */
+[data-theme="dark"] .section-full.bg-dark,
+[data-theme="dark"] .bg-black,
+[data-theme="dark"] .footer-wrapper,
+[data-theme="dark"] .btn-black,
+[data-theme="dark"] .badge-black,
+[data-theme="dark"] .status-completed,
+[data-theme="dark"] .pricing-card.featured,
+[data-theme="dark"] .toast,
+[data-theme="dark"] .dashboard-sidebar,
+[data-theme="dark"] .kpi-icon-wrap,
+[data-theme="dark"] .appointment-banner,
+[data-theme="dark"] .brand-tag,
+[data-theme="dark"] .brand-logo-badge,
+[data-theme="dark"] [style*="background: var(--color-black)"],
+[data-theme="dark"] [style*="background-color: var(--color-black)"] {
+  --color-white: #FFFFFF;
+  --color-black: #111111;
+  --color-black-light: #1A1A1A;
+  --color-black-card: #222222;
+  --color-black-border: #333333;
+  --color-gray-50: #F9F9FA;
+  --color-gray-100: #F2F2F5;
+  --color-gray-200: #E5E5E8;
+  --color-gray-300: #D0D0D5;
+  --color-gray-400: #9E9EA5;
+  --color-gray-500: #707078;
+  --color-gray-700: #383840;
+  --color-gray-800: #24242A;
+}
+
+/* 2. Anything on a lime fill keeps black ink */
+[data-theme="dark"] .bg-lime,
+[data-theme="dark"] .badge-lime,
+[data-theme="dark"] .btn-lime,
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .before-after-handle,
+[data-theme="dark"] .faq-item.active .faq-icon,
+[data-theme="dark"] .status-confirmed,
+[data-theme="dark"] .status-active,
+[data-theme="dark"] .appointment-time-badge,
+[data-theme="dark"] .chart-bar.active,
+[data-theme="dark"] .kpi-trend-highlight,
+[data-theme="dark"] .sidebar-badge,
+[data-theme="dark"] .sidebar-link.active,
+[data-theme="dark"] .section-subtitle,
+[data-theme="dark"] .bg-dark .section-subtitle,
+[data-theme="dark"] .footer-wrapper .brand-tag,
+[data-theme="dark"] .btn-outline-lime:hover,
+[data-theme="dark"] [style*="background: var(--color-lime)"],
+[data-theme="dark"] [style*="background-color: var(--color-lime)"] {
+  --color-white: #FFFFFF;
+  --color-black: #111111;
+}
+
+/* 3. Inline white cards become elevated dark cards (tokens stay inverted) */
+[data-theme="dark"] [style*="background: var(--color-white)"],
+[data-theme="dark"] [style*="background-color: var(--color-white)"] {
+  --color-white: #111111;
+  --color-black: #FFFFFF;
+  --color-black-light: #1A1A1A;
+  --color-black-card: #202020;
+  --color-black-border: #2E2E2E;
+  --color-gray-50: #141414;
+  --color-gray-100: #1C1C1C;
+  --color-gray-200: #262626;
+  --color-gray-300: #383838;
+  --color-gray-400: #7E7E86;
+  --color-gray-500: #9E9EA5;
+  --color-gray-700: #D0D0D5;
+  --color-gray-800: #EAEAEA;
+  background: #1A1A1A !important;
+  border-color: #2E2E2E;
+}
+
+/* Always-dark surfaces stay distinct from the #111 page background */
+[data-theme="dark"] .section-full.bg-dark {
+  background-color: #0A0A0A;
+  border-top: 1px solid #1F1F1F;
+  border-bottom: 1px solid #1F1F1F;
+}
+
+[data-theme="dark"] .footer-wrapper {
+  background-color: #0A0A0A;
+  border-top: 1px solid #1F1F1F;
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .dashboard-sidebar {
+  background-color: #0A0A0A;
+  border-right: 1px solid #1F1F1F;
+}
+
+[data-theme="dark"] .pricing-card.featured {
+  background-color: #0A0A0A;
+  border-color: #C6FF00;
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .appointment-banner {
+  background-color: #0A0A0A;
+  border: 1px solid #2A2A2A;
+}
+
+[data-theme="dark"] .toast {
+  background-color: #1F1F1F;
+  border: 1px solid #333333;
+}
+
+/* Lime stays lime on every surface */
+[data-theme="dark"] .testimonial-stars,
+[data-theme="dark"] .service-card .text-lime {
+  color: #C6FF00 !important;
+}
+
+[data-theme="dark"] .section-subtitle {
+  background-color: #C6FF00;
+  color: #111111;
+}
+
+/* Page sections that alternate light / soft gray keep a visible rhythm */
+[data-theme="dark"] .section-full.bg-gray,
+[data-theme="dark"] .bg-gray-50 {
+  background-color: #141414;
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: #111111 !important;
+}
+
+/* Muted copy and placeholders: never below readable contrast */
+[data-theme="dark"] .text-gray,
+[data-theme="dark"] .section-description,
+[data-theme="dark"] .service-desc,
+[data-theme="dark"] .testimonial-quote,
+[data-theme="dark"] .faq-body {
+  color: #B8B8C0;
+}
+
+[data-theme="dark"] .section-full.bg-dark .section-description,
+[data-theme="dark"] .section-full.bg-dark p {
+  color: #B8B8C0;
+}
+
+[data-theme="dark"] ::placeholder {
+  color: #8A8A92;
+  opacity: 1;
+}
+
+[data-theme="dark"] .footer-col p,
+[data-theme="dark"] .footer-links a,
+[data-theme="dark"] .footer-bottom,
+[data-theme="dark"] .footer-bottom a {
+  color: #B8B8C0;
+}
+
+[data-theme="dark"] .footer-links a:hover,
+[data-theme="dark"] .footer-bottom a:hover {
+  color: #C6FF00;
+}
+
+[data-theme="dark"] .footer-col h4,
+[data-theme="dark"] .footer-col strong,
+[data-theme="dark"] .footer-wrapper .brand-logo {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .footer-input {
+  background-color: #161616;
+  border-color: #333333;
+  color: #FFFFFF;
+}
+
+/* Dark mode v2 - remaining scoped fixes */
+[data-theme="dark"] .btn-outline-white,
+[data-theme="dark"] .step-indicator.active .step-circle {
+  --color-white: #FFFFFF;
+  --color-black: #111111;
+}
+
+[data-theme="dark"] .step-indicator.active .step-circle {
+  border-color: #C6FF00;
+}
+
+/* Dark mode v2 - keep black chips and badges defined on dark surfaces */
+[data-theme="dark"] .header-wrapper .brand-tag,
+[data-theme="dark"] .dashboard-sidebar .brand-tag {
+  background-color: transparent;
+  border: 1px solid #C6FF00;
+  color: #C6FF00;
+}
+
+[data-theme="dark"] .badge-black,
+[data-theme="dark"] [style*="background: var(--color-black)"],
+[data-theme="dark"] [style*="background-color: var(--color-black)"] {
+  box-shadow: inset 0 0 0 1px #3A3A3A;
+}
+
+[data-theme="dark"] .badge-black {
+  background-color: #1F1F1F;
+}
+
+[data-theme="dark"] .social-divider::before,
+[data-theme="dark"] .social-divider::after {
+  background: #333333;
+}

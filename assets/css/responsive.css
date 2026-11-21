@@ -1,0 +1,2398 @@
+/* ==========================================================================
+   CLEANORA HOME CLEANING & HOUSEKEEPING SERVICE TEMPLATE
+   Responsive Stylesheet - responsive.css
+   Breakpoints: Mobile (<640px), Tablet (640px-1024px), Desktop (1024px-1280px),
+   Large Desktop (>1280px). Tested: 375px, 430px, 640px, 768px, 1024px, 1280px, 1440px, 1920px
+   Strict 30px side padding on Desktop & Tablet, 18px on Mobile. Zero overflow.
+   ========================================================================== */
+
+/* Large Desktop (> 1280px) */
+@media (min-width: 1281px) {
+  .section-inner {
+    max-width: 1440px;
+  }
+}
+
+/* Standard Desktop (1024px - 1280px) */
+@media (max-width: 1280px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-top {
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: var(--space-8);
+  }
+}
+
+/* Tablet (640px - 1024px) */
+@media (max-width: 1024px) {
+  /* Maintain 30px side padding on Tablet */
+  .section-full,
+  .header-wrapper,
+  .footer-wrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .nav-menu {
+    display: none; /* Switch to hamburger menu */
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Dashboard on Tablet */
+  .dashboard-sidebar {
+    transform: translateX(-100%);
+  }
+
+  [dir="rtl"] .dashboard-sidebar {
+    transform: translateX(100%);
+  }
+
+  .dashboard-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .dashboard-main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  [dir="rtl"] .dashboard-main {
+    margin-right: 0;
+  }
+
+  .sidebar-toggle-btn {
+    display: block;
+  }
+
+  .dashboard-topbar {
+    padding: 0 var(--space-5);
+  }
+
+  .dashboard-content {
+    padding: var(--space-6);
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* Mobile (< 640px) */
+@media (max-width: 639px) {
+  :root {
+    --page-padding-x: 18px; /* 16px - 20px on mobile */
+  }
+
+  .section-full,
+  .header-wrapper,
+  .footer-wrapper {
+    padding-left: var(--page-padding-x);
+    padding-right: var(--page-padding-x);
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+  }
+
+  .nav-container {
+    height: 68px;
+  }
+
+  .brand-logo {
+    font-size: 1.3rem;
+  }
+
+  .brand-logo-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    min-height: 48px; /* Touch target */
+    font-size: 0.9rem;
+    padding: 10px 18px;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .kpi-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .pricing-card.featured {
+    transform: none;
+  }
+
+  .appointment-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-6);
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+  }
+
+  .footer-bottom-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .topbar-search-box {
+    display: none; /* Hide topbar input on mobile to prevent overflow */
+  }
+
+  .dashboard-content {
+    padding: var(--space-4);
+  }
+
+  .before-after-wrapper {
+    height: 300px;
+  }
+}
+
+/* Small Mobile (<= 375px) */
+@media (max-width: 375px) {
+  :root {
+    --page-padding-x: 16px;
+  }
+
+  .service-card-media {
+    height: 180px;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* Reduced Motion Support (Accessibility Target WCAG 2.1 AA) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   ALIGNMENT SYSTEM (v2) - responsive behaviour
+   Collapses every inline multi-column layout predictably so text and cards
+   stay aligned and nothing ever overflows the 30px / 18px page gutters.
+   ========================================================================== */
+
+/* Large laptops: centre the nav on the true page centre line */
+@media (min-width: 1281px) {
+  .nav-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    column-gap: var(--space-6);
+  }
+
+  .nav-container > .brand-logo {
+    justify-self: start;
+  }
+
+  .nav-container > nav {
+    justify-self: center;
+  }
+
+  .nav-container > .nav-actions {
+    justify-self: end;
+  }
+}
+
+/* Compact desktop: tighten header so logo + menu + actions always fit */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .nav-menu {
+    gap: var(--space-5);
+  }
+
+  .nav-actions {
+    gap: var(--space-3);
+  }
+
+  .nav-actions .btn-sm {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* Tablet: two-column layouts become predictable, inline grids stack */
+@media (max-width: 1024px) {
+  .grid-cols-4,
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid[style*="grid-template-columns: 2fr 1fr"],
+  .grid[style*="grid-template-columns: 1.5fr 1fr"],
+  .grid[style*="grid-template-columns: 1fr 1fr"],
+  .grid[style*="grid-template-columns:2fr 1fr"],
+  .grid[style*="grid-template-columns: 1.2fr 1fr"],
+  .grid[style*="grid-template-columns: 1fr 1.2fr"],
+  .grid[style*="grid-template-columns: 1fr 2fr"],
+  .grid[style*="grid-template-columns: 1fr 1.5fr"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .grid-2 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+  }
+
+  .grid-cols-2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Inline repeat(3,1fr) trust boxes drop to a readable 1 column */
+  [style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-bottom-links {
+    justify-content: flex-start;
+  }
+
+  .pricing-card.featured {
+    transform: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 639px) {
+  /* Header: logo + Login + hamburger only (Theme / RTL / Book live in the drawer) */
+  .nav-actions {
+    gap: var(--space-2);
+  }
+
+
+  .nav-container {
+    gap: var(--space-3);
+  }
+
+  .brand-tag {
+    font-size: 0.6rem;
+    padding: 3px 6px;
+    margin-left: 0;
+  }
+
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+
+  [style*="grid-template-columns"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  /* Inline gaps on collapsed grids stay proportional */
+  .grid[style*="gap: var(--space-12)"],
+  .grid[style*="gap: 60px"],
+  .grid[style*="gap: 48px"] {
+    gap: var(--space-8) !important;
+  }
+
+  /* Cards: consistent inner padding */
+  .pricing-card {
+    padding: var(--space-6);
+  }
+
+  .pricing-desc {
+    min-height: 0;
+  }
+
+  .pricing-amount-wrap {
+    min-height: 0;
+  }
+
+  .feature-box {
+    padding: var(--space-6);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .section-header.text-center .section-description {
+    max-width: 100%;
+  }
+
+  /* Forms with inline input + button rows wrap instead of clipping */
+  form > div[style*="display: flex"] {
+    flex-wrap: nowrap;
+  }
+
+  form .btn {
+    flex-shrink: 0;
+  }
+
+  /* Hero stat rows: tidy 3-up grid with divider lines hidden */
+  .section-full.bg-dark .section-inner > div > div[style*="border-top"] {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-3) !important;
+    text-align: left;
+  }
+
+  .section-full.bg-dark .section-inner > div > div[style*="border-top"] > div[style*="width: 1px"] {
+    display: none;
+  }
+
+  .section-full.bg-dark .section-inner > div > div[style*="border-top"] > div > div:first-child {
+    font-size: 1.15rem !important;
+  }
+
+  .footer-bottom {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-bottom-links {
+    justify-content: center;
+  }
+
+  /* Tables scroll inside their own container instead of the page */
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .dashboard-table th,
+  .dashboard-table td {
+    padding: 12px 14px;
+    white-space: nowrap;
+  }
+}
+
+/* ==========================================================================
+   ALIGNMENT SYSTEM (v2) - dashboard responsive
+   ========================================================================== */
+@media (max-width: 1280px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  .topbar-search-input {
+    width: 150px;
+  }
+}
+
+@media (max-width: 900px) {
+  .topbar-search-box {
+    display: none;
+  }
+
+  .dashboard-content .grid[style*="grid-template-columns"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .appointment-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 639px) {
+  .dashboard-topbar {
+    padding: 0 var(--space-4);
+    gap: var(--space-3);
+  }
+
+  .topbar-right {
+    gap: var(--space-2);
+  }
+
+  .topbar-right > .btn,
+  .topbar-right > .rtl-toggle-btn {
+    display: none;
+  }
+
+  .topbar-page-title {
+    font-size: 1.05rem;
+  }
+
+  .kpi-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .kpi-value {
+    font-size: 1.85rem;
+  }
+
+  .table-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dashboard-content .grid,
+  .dashboard-content [style*="display: flex"][style*="justify-content: space-between"] {
+    min-width: 0;
+  }
+}
+
+/* ==========================================================================
+   ALIGNMENT SYSTEM (v2) - dashboard rows that must wrap instead of overflow
+   ========================================================================== */
+.dashboard-content .btn {
+  flex-shrink: 0;
+}
+
+.dashboard-content > div[style*="justify-content: space-between"] {
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.dashboard-content div:has(> .booking-filter-tab),
+.dashboard-content div:has(> select.form-control),
+.dashboard-content div:has(> .service-cat-btn) {
+  flex-wrap: wrap;
+}
+
+.dashboard-content select.form-control {
+  max-width: 100%;
+}
+
+.dashboard-table td:last-child > div[style*="inline-flex"] {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+@media (max-width: 639px) {
+  .dashboard-content div:has(> table:not(.dashboard-table)) {
+    overflow-x: auto;
+  }
+}
+
+/* ==========================================================================
+   TABLET & MOBILE HEADER (<= 1024px)
+   Header keeps only: Logo | Login | Menu button.
+   Theme, RTL and Book a Cleaning live inside the menu drawer (no Login there).
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .nav-actions > .nav-hide-tablet {
+    display: none !important;
+  }
+
+  .nav-actions {
+    gap: var(--space-3);
+  }
+
+  .nav-actions .nav-login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0 18px;
+    white-space: nowrap;
+  }
+
+  .mobile-nav-toggle {
+    flex-shrink: 0;
+  }
+
+  /* Drawer: preferences + booking CTA */
+  .mobile-drawer-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 16px;
+    margin-top: 12px;
+    border-top: 1px solid var(--color-gray-200);
+    position: sticky;
+    bottom: calc(-1 * var(--space-6));
+    padding-bottom: var(--space-6);
+    background: inherit;
+    z-index: 1;
+  }
+
+  .mobile-nav-links a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .drawer-tool {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 52px;
+    padding: 0 6px 0 16px;
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--color-black);
+  }
+
+  .drawer-tool .theme-toggle-btn,
+  .drawer-tool .rtl-toggle-btn {
+    width: 56px;
+    height: 40px;
+  }
+
+  .mobile-drawer-footer .btn-block {
+    margin: 0;
+  }
+}
+
+/* Very small phones: Login collapses to an icon so the header never overflows */
+@media (max-width: 399px) {
+  .nav-actions .nav-login-btn {
+    width: 44px;
+    padding: 0;
+  }
+
+  .nav-actions .nav-login-btn span {
+    display: none;
+  }
+}
+
+/* Logo mark inside the badge */
+.brand-logo-mark {
+  display: block;
+  width: 62%;
+  height: 62%;
+  color: #111111;
+}
+
+/* ==========================================================================
+   TABLET CARD GRIDS (641px - 1024px)
+   Two-column card grids with an odd card count: the last (orphan) card is
+   centred on its own row at exactly the same width as the cards above it.
+   ========================================================================== */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .grid-3 { --grid-gap: var(--space-8); }
+  .grid-4 { --grid-gap: var(--space-6); }
+
+  .grid-3 > :last-child:nth-child(odd),
+  .grid-4 > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - var(--grid-gap)) / 2);
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   PARAGRAPH READABILITY - strong contrast in light and dark mode
+   ========================================================================== */
+[data-theme="light"] .service-desc,
+[data-theme="light"] .section-full:not(.bg-dark) .section-description,
+[data-theme="light"] .testimonial-quote,
+[data-theme="light"] .faq-body {
+  color: #3F3F46;
+}
+
+[data-theme="dark"] .service-desc,
+[data-theme="dark"] .section-description,
+[data-theme="dark"] .testimonial-quote,
+[data-theme="dark"] .faq-body,
+[data-theme="dark"] .section-full.bg-dark .section-description,
+[data-theme="dark"] .section-full.bg-dark p {
+  color: #D4D4DA;
+}
+
+/* ==========================================================================
+   DRAWER: Services dropdown (tablet / mobile)
+   ========================================================================== */
+.mobile-sub-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px var(--space-2);
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--color-gray-100);
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-black);
+  cursor: pointer;
+  text-align: start;
+}
+
+.mobile-sub-toggle svg {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.mobile-has-sub.open > .mobile-sub-toggle svg {
+  transform: rotate(180deg);
+}
+
+.mobile-sub-toggle.active {
+  color: var(--color-black);
+}
+
+.mobile-sub-links {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 var(--space-4);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.mobile-has-sub.open > .mobile-sub-links {
+  max-height: 200px;
+}
+
+[dir="rtl"] .mobile-sub-links {
+  padding: 0 var(--space-4) 0 0;
+}
+
+.mobile-sub-links a {
+  font-size: 1rem;
+  font-weight: 600;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* ==========================================================================
+   MOBILE HEADER (<= 639px): fixed height, vertically centred, no overflow
+   ========================================================================== */
+.brand-logo-mark {
+  width: 74%;
+  height: 74%;
+}
+
+@media (max-width: 639px) {
+  .header-wrapper {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .nav-container {
+    height: 64px;
+    gap: var(--space-2);
+  }
+
+  .brand-logo {
+    gap: 8px;
+    font-size: 1.25rem;
+    min-width: 0;
+  }
+
+  .brand-logo-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .nav-actions .nav-login-btn,
+  .mobile-nav-toggle {
+    height: 42px;
+    min-height: 42px;
+  }
+
+  .mobile-nav-toggle {
+    width: 42px;
+  }
+}
+
+@media (max-width: 399px) {
+  .nav-actions .nav-login-btn {
+    width: 42px;
+  }
+}
+
+@media (max-width: 359px) {
+  .brand-logo {
+    font-size: 1.05rem;
+    gap: 6px;
+  }
+
+  .brand-logo-badge {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Small phones: long button labels wrap instead of overflowing the screen */
+@media (max-width: 399px) {
+  .btn {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   SERVICES PAGE: tighter, even vertical rhythm (no large empty gaps)
+   ========================================================================== */
+.page-services .section-full {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.page-services .section-full.py-compact {
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.page-services .section-header {
+  margin-bottom: 32px;
+}
+
+.page-services .grid {
+  gap: 24px;
+}
+
+.page-services .service-card-media {
+  height: 200px;
+}
+
+.page-services .feature-box {
+  padding: 24px;
+}
+
+@media (max-width: 639px) {
+  .page-services .section-full {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .page-services .section-full.py-compact {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .page-services .section-header {
+    margin-bottom: 24px;
+  }
+
+  .page-services .grid {
+    gap: 18px;
+  }
+
+  .page-services .service-card-media {
+    height: 180px;
+  }
+}
+
+/* ==========================================================================
+   TRUST PILLARS (tablet): orphan third pillar is centred on its own row
+   ========================================================================== */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .trust-pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .trust-pillars > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    text-align: center;
+    max-width: 480px;
+  }
+}
+
+/* ==========================================================================
+   COMPARISON TABLE (mobile): every row becomes a stacked card, one by one
+   ========================================================================== */
+@media (max-width: 639px) {
+  .comparison-table,
+  .comparison-table tbody,
+  .comparison-table tr,
+  .comparison-table td {
+    display: block;
+    width: 100% !important;
+  }
+
+  .comparison-table thead {
+    display: none;
+  }
+
+  .comparison-table tr {
+    padding: 16px;
+    margin: 0 0 14px;
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+  }
+
+  .comparison-table tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .comparison-table td {
+    text-align: left !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    padding: 10px 0 !important;
+    border: 0 !important;
+    border-bottom: 1px dashed var(--color-gray-200) !important;
+    background: transparent !important;
+  }
+
+  .comparison-table td:first-child {
+    padding-top: 0 !important;
+    font-size: 1.05rem;
+  }
+
+  .comparison-table td:last-child {
+    border-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .comparison-table td[data-label]:not(:first-child)::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-gray-500);
+  }
+
+  .comparison-table td:last-child[data-label]::before {
+    color: var(--color-black);
+  }
+
+  .comparison-table .table-responsive,
+  .table-responsive:has(.comparison-table) {
+    overflow: visible;
+  }
+}
+
+/* ==========================================================================
+   OUTLINE-LIME BADGES: readable on light surfaces
+   (lime text only works on dark backgrounds)
+   ========================================================================== */
+[data-theme="light"] .feature-box .badge-outline-lime,
+[data-theme="light"] .bg-light .badge-outline-lime,
+[data-theme="light"] .service-card .badge-outline-lime,
+[data-theme="light"] .card .badge-outline-lime,
+[data-theme="light"] .table-card .badge-outline-lime {
+  background: var(--color-lime) !important;
+  color: #111111 !important;
+  border-color: #111111;
+}
+
+/* ==========================================================================
+   SECTION DESIGNS
+   .step-timeline  : connected numbered steps (How Cleanora Works)
+   .spec-list      : accent-bar spec sheet (Equipment)
+   .values-panel   : dark panel with divided columns (About values)
+   ========================================================================== */
+.step-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  text-align: center;
+}
+
+.step-item {
+  position: relative;
+  padding: 0 8px;
+}
+
+.step-num {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  background: var(--color-lime);
+  color: #111111;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 900;
+  box-shadow: 0 0 0 8px rgba(198, 255, 0, 0.18);
+}
+
+.step-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: calc(50% + 40px);
+  width: calc(100% + 32px - 80px);
+  border-top: 2px dashed var(--color-gray-300);
+}
+
+[dir="rtl"] .step-item:not(:last-child)::after {
+  left: auto;
+  right: calc(50% + 40px);
+}
+
+.step-item h4 {
+  margin-bottom: 8px;
+}
+
+.step-item p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-gray-500);
+  margin: 0;
+}
+
+.spec-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px 64px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.spec-item {
+  padding: 2px 0 2px 22px;
+  border-left: 4px solid var(--color-lime);
+}
+
+[dir="rtl"] .spec-item {
+  padding: 2px 22px 2px 0;
+  border-left: 0;
+  border-right: 4px solid var(--color-lime);
+}
+
+.spec-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gray-500);
+}
+
+.spec-item h4 {
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.spec-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-gray-500);
+}
+
+.values-panel {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: #111111;
+  border: 1px solid #2A2A2A;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.value-item {
+  padding: 36px 28px;
+  border-left: 1px solid #2A2A2A;
+}
+
+.value-item:first-child {
+  border-left: 0;
+}
+
+[dir="rtl"] .value-item {
+  border-left: 0;
+  border-right: 1px solid #2A2A2A;
+}
+
+[dir="rtl"] .value-item:first-child {
+  border-right: 0;
+}
+
+.value-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  background: var(--color-lime);
+  color: #111111;
+}
+
+.value-tag {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-lime);
+}
+
+.value-item h4 {
+  margin-bottom: 8px;
+  color: #FFFFFF;
+}
+
+.value-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #B8B8C0;
+}
+
+@media (max-width: 1024px) {
+  .step-timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 32px;
+  }
+
+  .step-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .values-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .value-item:nth-child(odd) {
+    border-left: 0;
+  }
+
+  .value-item:nth-child(n + 3) {
+    border-top: 1px solid #2A2A2A;
+  }
+
+  [dir="rtl"] .value-item:nth-child(odd) {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 639px) {
+  /* Vertical timeline */
+  .step-timeline {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    text-align: left;
+  }
+
+  [dir="rtl"] .step-timeline {
+    text-align: right;
+  }
+
+  .step-item {
+    padding: 0 0 28px 76px;
+  }
+
+  [dir="rtl"] .step-item {
+    padding: 0 76px 28px 0;
+  }
+
+  .step-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .step-num {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 48px;
+    height: 48px;
+    font-size: 1.15rem;
+  }
+
+  [dir="rtl"] .step-num {
+    left: auto;
+    right: 0;
+  }
+
+  .step-item:not(:last-child)::after {
+    display: block;
+    top: 56px;
+    bottom: 8px;
+    left: 23px;
+    width: 0;
+    height: auto;
+    border-top: 0;
+    border-left: 2px dashed var(--color-gray-300);
+  }
+
+  [dir="rtl"] .step-item:not(:last-child)::after {
+    left: auto;
+    right: 23px;
+  }
+
+  .spec-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .values-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .value-item,
+  .value-item:nth-child(odd),
+  [dir="rtl"] .value-item,
+  [dir="rtl"] .value-item:nth-child(odd) {
+    border-left: 0;
+    border-right: 0;
+    padding: 28px 22px;
+  }
+
+  .value-item + .value-item {
+    border-top: 1px solid #2A2A2A;
+  }
+}
+
+/* Tablet: stat rows (450+ / 32,000+ / 100%) stretch full width in equal columns */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .stat-row {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ===== Footer polish: readable text, no dead space, columns on one line ===== */
+.footer-wrapper p {
+  color: var(--color-gray-300, #D4D4DA);
+  margin-bottom: 0;
+}
+.footer-wrapper .footer-col > p {
+  color: var(--color-gray-400);
+  margin-bottom: var(--space-4);
+}
+.footer-wrapper .footer-col strong {
+  color: #FFFFFF;
+}
+.footer-wrapper .footer-contact-info p,
+.footer-wrapper .footer-col div > p {
+  color: #D4D4DA !important;
+  line-height: 1.7;
+}
+.footer-wrapper .footer-col div > p + p {
+  margin-top: 6px;
+}
+
+.footer-wrapper {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-6);
+}
+.footer-top {
+  align-items: start;
+  padding-bottom: var(--space-10);
+}
+.footer-links {
+  gap: var(--space-2);
+}
+.footer-bottom {
+  align-items: center;
+  padding-top: var(--space-6);
+}
+
+/* Desktop + tablet: all four footer sections stay on ONE line */
+@media (min-width: 640px) {
+  .footer-top {
+    grid-template-columns: 1.5fr 1.1fr 1.1fr 1.4fr;
+    gap: var(--space-6);
+  }
+  .footer-col h5 { font-size: 1rem; }
+  .footer-links a { font-size: 0.88rem; line-height: 1.45; }
+  .footer-wrapper .footer-col > p { font-size: 0.88rem; }
+  .footer-col > div[style*="display: flex"] { flex-direction: column; align-items: flex-start; gap: 8px !important; }
+  .newsletter-form > div { flex-wrap: wrap; }
+  .newsletter-form .footer-input { flex: 1 1 120px; }
+}
+@media (min-width: 1025px) {
+  .footer-top { gap: var(--space-10); }
+  .footer-links a { font-size: 0.95rem; }
+}
+/* Mobile: single column, no extra gaps */
+@media (max-width: 639px) {
+  .footer-top { gap: var(--space-6); padding-bottom: var(--space-8); }
+}
+
+/* ===== Text visibility: footer + paragraphs site-wide (light & dark themes) ===== */
+
+/* Footer: every line of text clearly readable on the black background */
+html .footer-wrapper,
+html[data-theme] .footer-wrapper {
+  color: #FFFFFF;
+}
+html .footer-wrapper p,
+html[data-theme] .footer-wrapper p,
+html[data-theme] .footer-wrapper .footer-col p,
+html[data-theme] .footer-wrapper .footer-col div > p {
+  color: #E8E8EC !important;
+  font-weight: 500;
+  opacity: 1;
+}
+html[data-theme] .footer-wrapper .footer-col p strong,
+html[data-theme] .footer-wrapper .footer-col strong {
+  color: #FFFFFF !important;
+  font-weight: 800;
+}
+html[data-theme] .footer-wrapper .footer-col span,
+html[data-theme] .footer-wrapper .footer-col span.ltr-preserve {
+  color: #FFFFFF;
+}
+html[data-theme] .footer-wrapper .footer-links a,
+html[data-theme] .footer-wrapper .footer-bottom,
+html[data-theme] .footer-wrapper .footer-bottom a {
+  color: #D4D4DA;
+}
+html[data-theme] .footer-wrapper .footer-links a:hover,
+html[data-theme] .footer-wrapper .footer-bottom a:hover {
+  color: #C6FF00;
+}
+html[data-theme] .footer-wrapper [style*="color: var(--color-gray-400)"],
+html[data-theme] .footer-wrapper [style*="color: var(--color-gray-500)"] {
+  color: #E8E8EC !important;
+}
+
+/* Paragraphs on light surfaces: darker, crisper */
+html[data-theme="light"] p {
+  color: #2A2A30;
+}
+html[data-theme="light"] [style*="color: var(--color-gray-500)"],
+html[data-theme="light"] .text-muted {
+  color: #4A4A52 !important;
+}
+
+/* Paragraphs on always-dark sections (hero, CTA, process): brighter */
+html[data-theme] .section-full.bg-dark p,
+html[data-theme] .bg-black p,
+html[data-theme] .pricing-card.featured p {
+  color: #E0E0E6;
+}
+html[data-theme] .section-full.bg-dark [style*="color: var(--color-gray-400)"],
+html[data-theme] .section-full.bg-dark [style*="color: var(--color-gray-500)"],
+html[data-theme] .bg-black [style*="color: var(--color-gray-400)"],
+html[data-theme] .service-card-cta [style*="color: #D4D4DA"] {
+  color: #E0E0E6 !important;
+}
+
+/* ===== Footer logo: restore correct colours (icon dark on lime, PRO tag dark on lime) ===== */
+html[data-theme] .footer-wrapper .brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #FFFFFF;
+  font-size: 1.55rem;
+  line-height: 1;
+  white-space: nowrap;
+  margin-bottom: 18px;
+}
+html[data-theme] .footer-wrapper .brand-logo > span:not(.brand-logo-badge):not(.brand-tag) {
+  color: #FFFFFF;
+}
+html[data-theme] .footer-wrapper .brand-logo .brand-logo-badge {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  background: #C6FF00;
+  color: #111111;
+  border-radius: 10px;
+}
+html[data-theme] .footer-wrapper .brand-logo .brand-logo-badge svg {
+  width: 24px;
+  height: 24px;
+  color: #111111;
+}
+html[data-theme] .footer-wrapper .brand-logo .brand-tag {
+  background: #C6FF00;
+  color: #111111;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 4px 7px;
+  border-radius: 4px;
+}
+
+/* ===== Footer link lists: every item on ONE line ===== */
+.footer-links a {
+  white-space: nowrap;
+}
+.footer-links li {
+  white-space: nowrap;
+}
+
+/* Desktop: brand | services | quick access | newsletter, link columns sized to content */
+@media (min-width: 1025px) {
+  .footer-top {
+    grid-template-columns: minmax(240px, 1.3fr) max-content max-content minmax(240px, 1.2fr);
+    gap: var(--space-10);
+  }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .footer-top { gap: var(--space-6); }
+  .footer-links a { font-size: 0.88rem; }
+}
+
+/* Tablet: brand + newsletter on top row, the two link lists below (one line each) */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8) var(--space-10);
+    padding-bottom: var(--space-8);
+  }
+  .footer-top > .footer-col:nth-child(1) { order: 1; }
+  .footer-top > .footer-col:nth-child(4) { order: 2; }
+  .footer-top > .footer-col:nth-child(2) { order: 3; }
+  .footer-top > .footer-col:nth-child(3) { order: 4; }
+  .footer-col > div[style*="display: flex"] {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px !important;
+  }
+  .footer-links a { font-size: 0.95rem; }
+  .footer-col h5 { font-size: 1.05rem; }
+  .footer-wrapper .footer-col > p { font-size: 0.95rem; }
+  .newsletter-form .footer-input { flex: 1 1 160px; }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+  .footer-bottom-links { justify-content: flex-start; }
+}
+
+/* Phones: links may wrap if the screen is very narrow, never overflow */
+@media (max-width: 639px) {
+  .footer-links a, .footer-links li { white-space: normal; }
+}
+
+/* ==========================================================================
+   Dashboard + Admin: tables become stacked cards (one by one) on tablet & mobile
+   Labels come from the column headers (data-label added in main.js)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .table-card .table-responsive { overflow-x: visible; }
+
+  .table-card .dashboard-table,
+  .table-card .dashboard-table tbody {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* hide header row visually but keep it for screen readers */
+  .table-card .dashboard-table thead {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .table-card .dashboard-table tbody {
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .table-card .dashboard-table tr {
+    display: block;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    padding: 6px 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  .table-card .dashboard-table td {
+    display: grid;
+    grid-template-columns: minmax(110px, 38%) minmax(0, 1fr);
+    align-items: center;
+    column-gap: 16px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--color-gray-200);
+    text-align: left !important;
+    white-space: normal;
+    background: transparent !important;
+  }
+
+  .table-card .dashboard-table td::before {
+    content: attr(data-label);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-gray-500);
+  }
+
+  .table-card .dashboard-table td .td-value {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    text-align: left;
+  }
+
+  .table-card .dashboard-table td:last-child {
+    border-bottom: none;
+    text-align: left !important;
+  }
+  /* action cell: no label, buttons span the card */
+  .table-card .dashboard-table td:last-child::before { content: attr(data-label); }
+  .table-card .dashboard-table td[data-label=""]::before { display: none; }
+  .table-card .dashboard-table td[data-label=""] { display: block; }
+  .table-card .dashboard-table td:last-child .td-value {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .table-card .dashboard-table tr:hover td { background: transparent !important; }
+
+  /* Other dashboard rows that were multi-column */
+  .table-card-header { flex-wrap: wrap; gap: var(--space-3); }
+}
+
+/* Tablet: 2-up info inside each card to avoid very long rows */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .table-card .dashboard-table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 28px;
+    padding: 8px 20px;
+  }
+  .table-card .dashboard-table td { grid-template-columns: minmax(90px, 40%) minmax(0, 1fr); }
+  .table-card .dashboard-table td:nth-last-child(1) { grid-column: 1 / -1; }
+}
+
+/* Mobile: every inline multi-column grid / form row stacks one by one */
+@media (max-width: 639px) {
+  .dashboard-content div[style*="display: grid"],
+  .dashboard-content .grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .kpi-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .dashboard-content .btn { max-width: 100%; }
+  .table-card .dashboard-table tbody { padding: var(--space-3); }
+}
+/* Tablet: 3-up / 2-up inline grids drop to 2 columns, wide ones to 1 */
+@media (min-width: 640px) and (max-width: 900px) {
+  .dashboard-content div[style*="repeat(3, 1fr)"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* ==========================================================================
+   Low-contrast text fix (light theme)
+   Lime (#C6FF00) and light-gray text is unreadable on white/light-gray surfaces.
+   -> Darker olive / charcoal on light surfaces, original lime/light on dark ones.
+   ========================================================================== */
+/* Lime text keeps its ORIGINAL colour; on light surfaces it sits on a dark pill so it is clearly visible */
+html[data-theme="light"] :is(.text-lime, [style*="color: var(--color-lime)"], [style*="color: #C6FF00"], [style*="color:#C6FF00"]):not([style*="background"]):not([class*="badge"]):not(.btn) {
+  color: #C6FF00 !important;
+  background: #111111;
+  font-weight: 800;
+  padding: 2px 10px;
+  border-radius: 8px;
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  line-height: 1.5;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+/* headings / inline highlighted words: highlight style instead of a block pill */
+html[data-theme="light"] :is(h1, h2, h3, h4, h5, .section-title) :is(.text-lime):not([style*="background"]) {
+  display: inline;
+  padding: 0 0.22em;
+  border-radius: 6px;
+}
+html[data-theme="light"] :is([style*="color: var(--color-gray-400)"], [style*="color: var(--color-gray-300)"]) {
+  color: #55555D !important;
+}
+html[data-theme="light"] [style*="color: var(--color-gray-500)"],
+html[data-theme="light"] .text-muted {
+  color: #4A4A52 !important;
+}
+
+/* Dark surfaces keep bright lime / light text */
+html[data-theme="light"] :is(
+  .bg-dark, .section-full.bg-dark, .bg-black, .footer-wrapper, .dashboard-sidebar,
+  .pricing-card.featured, .appointment-banner, .service-card-cta, .btn-black, .badge-black,
+  .feature-box[style*="background: var(--color-black)"],
+  [style*="background: var(--color-black)"], [style*="background: #111"],
+  [style*="background-color: #111"], [style*="background: #000"]
+) :is(.text-lime, [style*="color: var(--color-lime)"], [style*="color: #C6FF00"], [style*="color:#C6FF00"]),
+html[data-theme="light"] :is(.text-lime, [style*="color: var(--color-lime)"], [style*="color: #C6FF00"])[style*="background: #111"],
+html[data-theme="light"] :is(.text-lime, [style*="color: var(--color-lime)"], [style*="color: #C6FF00"])[style*="background: var(--color-black)"],
+html[data-theme="light"] .badge-black.text-lime {
+  color: #C6FF00 !important;
+}
+html[data-theme="light"] :is(
+  .bg-dark, .section-full.bg-dark, .bg-black, .footer-wrapper, .dashboard-sidebar,
+  .pricing-card.featured, .appointment-banner, .service-card-cta,
+  [style*="background: var(--color-black)"], [style*="background: #111"], [style*="background-color: #111"]
+) :is(.text-lime, [style*="color: var(--color-lime)"], [style*="color: #C6FF00"], [style*="color:#C6FF00"]):not([style*="background"]) {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  display: revert;
+  width: auto;
+}
+html[data-theme="light"] :is(
+  .bg-dark, .section-full.bg-dark, .bg-black, .footer-wrapper, .dashboard-sidebar,
+  .pricing-card.featured, .appointment-banner, .service-card-cta,
+  [style*="background: var(--color-black)"], [style*="background: #111"], [style*="background-color: #111"]
+) :is([style*="color: var(--color-gray-400)"], [style*="color: var(--color-gray-300)"], [style*="color: var(--color-gray-500)"], .text-muted) {
+  color: #C9C9D0 !important;
+}
+
+html[data-theme="light"] .kpi-trend[style*="color: var(--color-lime)"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ==========================================================================
+   Table action buttons (Download / Details / etc.) – clean, aligned
+   ========================================================================== */
+/* Desktop: button sits vertically centred, flush right in its cell */
+.dashboard-table td:last-child .td-value,
+.dashboard-table td:last-child {
+  vertical-align: middle;
+}
+.dashboard-table td:last-child .td-value {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+.dashboard-table td:last-child .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  line-height: 1.2;
+  min-height: 36px;
+  margin: 0;
+}
+
+/* Tablet & mobile (stacked cards): action row becomes a full-width button area */
+@media (max-width: 1024px) {
+  .table-card .dashboard-table td:last-child {
+    display: block;
+    padding-top: 14px;
+    margin-top: 4px;
+    border-top: 1px solid var(--color-gray-200);
+  }
+  .table-card .dashboard-table td:last-child::before {
+    display: none;
+  }
+  .table-card .dashboard-table td:last-child .td-value {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+  }
+  .table-card .dashboard-table td:last-child .btn {
+    flex: 1 1 140px;
+    width: 100%;
+    min-height: 42px;
+  }
+}
+@media (min-width: 640px) and (max-width: 1024px) {
+  .table-card .dashboard-table td:last-child .td-value { justify-content: flex-end; }
+  .table-card .dashboard-table td:last-child .btn { flex: 0 0 auto; width: auto; min-width: 160px; }
+}
+
+/* ==========================================================================
+   Icon palette: icons use only Black (#111), White (#FFF) and Primary Lime (#C6FF00)
+   ========================================================================== */
+.sidebar-link .sidebar-icon,
+.sidebar-link svg {
+  color: #FFFFFF;
+}
+.sidebar-link:hover .sidebar-icon,
+.sidebar-link:hover svg {
+  color: #C6FF00;
+}
+.sidebar-link.active .sidebar-icon,
+.sidebar-link.active svg {
+  color: #111111;
+}
+
+/* ==========================================================================
+   Banner / hero background images
+   Set per page with:  style="--banner-image: url('assets/images/banners/banner-xxx.jpg')"
+   (replace the JPG files in assets/images/banners/ with your own photos)
+   ========================================================================== */
+.section-full.bg-dark.banner-hero {
+  position: relative;
+  background-color: #0A0A0A;
+  background-image:
+    linear-gradient(90deg, rgba(10, 10, 10, 0.80) 0%, rgba(10, 10, 10, 0.48) 55%, rgba(10, 10, 10, 0.68) 100%),
+    var(--banner-image, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.banner-hero > .section-inner {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 1024px) {
+  .section-full.bg-dark.banner-hero {
+    background-image:
+      linear-gradient(180deg, rgba(10, 10, 10, 0.74), rgba(10, 10, 10, 0.64)),
+      var(--banner-image, none);
+    background-position: 60% center;
+  }
+}
+[data-theme="dark"] .section-full.bg-dark.banner-hero {
+  background-color: #0A0A0A;
+  background-image:
+    linear-gradient(90deg, rgba(10, 10, 10, 0.80) 0%, rgba(10, 10, 10, 0.48) 55%, rgba(10, 10, 10, 0.68) 100%),
+    var(--banner-image, none);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Banner image per page (paths are relative to this CSS file). Replace the JPGs or edit paths here. */
+.banner-hero[data-banner="home"] { --banner-image: url("../images/banners/banner-home.jpg"); }
+.banner-hero[data-banner="home-2"] { --banner-image: url("../images/banners/banner-home-2.jpg"); }
+.banner-hero[data-banner="about"] { --banner-image: url("../images/banners/banner-about.jpg"); }
+.banner-hero[data-banner="services"] { --banner-image: url("../images/banners/banner-services.jpg"); }
+.banner-hero[data-banner="services-1"] { --banner-image: url("../images/banners/banner-services-1.jpg"); }
+.banner-hero[data-banner="pricing"] { --banner-image: url("../images/banners/banner-pricing.jpg"); }
+.banner-hero[data-banner="team"] { --banner-image: url("../images/banners/banner-team.jpg"); }
+.banner-hero[data-banner="contact"] { --banner-image: url("../images/banners/banner-contact.jpg"); }
+.banner-hero[data-banner="blog"] { --banner-image: url("../images/banners/banner-blog.jpg"); }
+.banner-hero[data-banner="faq"] { --banner-image: url("../images/banners/banner-faq.jpg"); }
+
+
+/* ==========================================================================
+   ABOUT PAGE - values text fix + Milestones + Comparison sections
+   ========================================================================== */
+
+/* Values panel is dark in BOTH themes: force readable text (beats the
+   global light-mode paragraph rule) */
+html[data-theme] .values-panel p { color: #D4D4DA; }
+html[data-theme] .values-panel h4 { color: #FFFFFF; }
+html[data-theme] .values-panel .value-tag { color: #C6FF00; }
+
+/* ---- Milestones: horizontal rail with year nodes ---- */
+.milestones {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+  padding-top: 36px;
+}
+.milestones::before {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--color-gray-300) 0 8px, transparent 8px 14px);
+}
+.milestone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 20px 24px;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+.milestone::before {
+  content: "";
+  position: absolute;
+  top: -33px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: #C6FF00;
+  border: 3px solid #111111;
+  box-sizing: content-box;
+  transform: translateY(-3px);
+}
+.milestone-year {
+  align-self: center;
+  margin-bottom: 14px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: #111111;
+  color: #C6FF00;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.milestone h4 { margin-bottom: 8px; font-size: 1.05rem; }
+.milestone p { margin: 0; font-size: 0.9rem; line-height: 1.6; }
+
+/* ---- Comparison: Typical service vs Cleanora ---- */
+.compare-table {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr);
+  max-width: 980px;
+  margin: 0 auto;
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+.compare-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 24px;
+  border-top: 1px solid var(--color-gray-200);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.compare-cell.is-head {
+  border-top: 0;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.compare-cell.is-label { font-weight: 700; }
+.compare-cell.is-them { color: var(--color-gray-500); }
+.compare-cell.is-us {
+  background: #111111;
+  color: #FFFFFF;
+  border-top-color: #2A2A2A;
+  font-weight: 600;
+}
+.compare-cell.is-us.is-head { color: #C6FF00; }
+.compare-mark {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 900;
+  line-height: 1;
+}
+.is-them .compare-mark { background: #E5E5E8; color: #4A4A52; }
+.is-us .compare-mark { background: #C6FF00; color: #111111; }
+
+@media (max-width: 1024px) {
+  .milestones { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-top: 0; gap: 24px; }
+  .milestones::before { display: none; }
+  .milestone::before { display: none; }
+}
+@media (min-width: 640px) and (max-width: 1024px) {
+  /* odd last card: span both columns and sit centred */
+  .milestone:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 12px);
+  }
+}
+@media (max-width: 639px) {
+  .milestones { grid-template-columns: minmax(0, 1fr); }
+  .compare-table { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .compare-cell.is-head.is-label { display: none; }
+  .compare-cell.is-label {
+    grid-column: 1 / -1;
+    padding: 14px 18px 4px;
+    background: var(--color-gray-100);
+    font-size: 0.85rem;
+  }
+  .compare-cell { padding: 12px 18px; font-size: 0.88rem; align-items: flex-start; }
+}
+
+/* ==========================================================================
+   HOME 1 HERO v2 - centred statement over photo + quick-booking bar
+   ========================================================================== */
+.section-full.bg-dark.banner-hero.home-hero2 {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+  background-image:
+    radial-gradient(ellipse at 50% 40%, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.88) 75%),
+    var(--banner-image, none);
+}
+.hh2-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.home-hero2 h1 {
+  color: #FFFFFF;
+  margin: 22px 0 20px;
+  font-size: clamp(2.3rem, 5.2vw, 4rem);
+  line-height: 1.1;
+}
+.hh2-mark {
+  color: #111111;
+  background: #C6FF00;
+  padding: 0 0.22em;
+  border-radius: 0.18em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.hh2-lead { max-width: 700px; font-size: 1.15rem; line-height: 1.7; margin: 0 0 36px; }
+
+.hh2-bar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+  padding: 14px;
+  background: rgba(17, 17, 17, 0.82);
+  border: 1px solid rgba(198, 255, 0, 0.4);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  text-align: left;
+}
+.hh2-field { display: flex; flex-direction: column; gap: 6px; padding: 4px 8px 0; min-width: 0; }
+.hh2-field span {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C6FF00;
+}
+.hh2-field select,
+.hh2-field input {
+  width: 100%;
+  height: 46px;
+  padding: 0 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid #333333;
+  background: #1A1A1A;
+  color: #FFFFFF;
+  font: inherit;
+  font-size: 0.95rem;
+  color-scheme: dark;
+}
+.hh2-field select:focus,
+.hh2-field input:focus { outline: 2px solid #C6FF00; outline-offset: 1px; }
+.hh2-bar .btn { height: 46px; white-space: nowrap; margin-bottom: 0; }
+
+.hh2-points {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 28px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.hh2-points li { position: relative; padding-left: 22px; font-size: 0.92rem; font-weight: 600; color: #E0E0E6; }
+.hh2-points li::before {
+  content: "\2713";
+  position: absolute; left: 0; top: 2px;
+  width: 16px; height: 16px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; background: #C6FF00; color: #111111;
+  font-size: 0.62rem; font-weight: 900;
+}
+[dir="rtl"] .hh2-points li { padding-left: 0; padding-right: 22px; }
+[dir="rtl"] .hh2-points li::before { left: auto; right: 0; }
+[dir="rtl"] .hh2-bar { text-align: right; }
+
+@media (max-width: 1024px) {
+  .hh2-bar { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hh2-bar .btn { grid-column: 1 / -1; width: 100%; }
+  .section-full.bg-dark.banner-hero.home-hero2 {
+    background-image:
+      linear-gradient(180deg, rgba(10, 10, 10, 0.80), rgba(10, 10, 10, 0.88)),
+      var(--banner-image, none);
+  }
+}
+@media (max-width: 639px) {
+  .section-full.bg-dark.banner-hero.home-hero2 { padding-top: var(--space-12); padding-bottom: var(--space-12); }
+  .hh2-bar { grid-template-columns: minmax(0, 1fr); padding: 12px; }
+  .hh2-lead { font-size: 1.02rem; margin-bottom: 28px; }
+  /* trust points: one tidy column, ticks and text lined up on the left, block centred */
+  .hh2-points {
+    display: grid;
+    grid-template-columns: max-content;
+    justify-content: center;
+    justify-items: start;
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .hh2-points li { text-align: left; padding-left: 26px; }
+  .hh2-points li::before { top: 1px; width: 18px; height: 18px; }
+  [dir="rtl"] .hh2-points li { text-align: right; padding-left: 0; padding-right: 26px; }
+}
+
+/* ==========================================================================
+   SPEC LIST v2 (Services > Equipment) - equal-height cards, even grid
+   ========================================================================== */
+.spec-list {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  max-width: none;
+  align-items: stretch;
+}
+.spec-item,
+[dir="rtl"] .spec-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 30px 24px 26px;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  overflow: hidden;
+}
+[dir="rtl"] .spec-item { text-align: right; }
+.spec-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: #C6FF00;
+}
+.spec-item .spec-label { margin-bottom: 10px; }
+.spec-item h4 { margin-bottom: 10px; }
+.spec-item p { margin: 0; }
+
+@media (max-width: 1024px) {
+  .spec-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .spec-item h4 { min-height: 0; }
+}
+@media (max-width: 639px) {
+  .spec-list { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .spec-item, [dir="rtl"] .spec-item { padding: 24px 20px 22px; }
+}
+
+
+/* ==========================================================================
+   FULL-WIDTH MAP SECTION (Contact)
+   ========================================================================== */
+.map-section {
+  width: 100%;
+  padding: 0 var(--page-padding-x, 30px);
+  margin-bottom: 96px; /* breathing room above the footer */
+}
+.map-inner {
+  position: relative;
+  width: 100%;
+  max-width: var(--max-content-width, 1440px);
+  height: 480px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--color-gray-100);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+}
+.map-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.map-card {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  left: auto;
+  transform: translateY(-50%);
+  box-sizing: border-box;
+  width: 360px;
+  max-width: calc(100% - 48px);
+  padding: 30px 28px;
+  background: #111111;
+  border: 1px solid rgba(198, 255, 0, 0.4);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  text-align: left;
+}
+.map-card .btn { display: flex; width: 100%; justify-content: center; }
+.map-card-tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C6FF00;
+}
+.map-card h3 { color: #FFFFFF; margin-bottom: 8px; font-size: 1.2rem; }
+html[data-theme] .map-card p { color: #D4D4DA; margin: 0 0 8px; font-size: 0.92rem; line-height: 1.6; }
+html[data-theme] .map-card .map-card-hours { margin-bottom: 18px; color: #9E9EA5; font-size: 0.85rem; }
+[dir="rtl"] .map-card { right: auto; left: 24px; text-align: right; }
+@media (max-width: 767px) {
+  .map-section { margin-bottom: 56px; }
+  .map-inner { height: auto; display: flex; flex-direction: column; }
+  .map-frame { height: 340px; }
+  .map-card {
+    position: static;
+    transform: none;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    border-width: 1px 0 0;
+    text-align: left;
+    box-shadow: none;
+  }
+}
+
+
+/* ==========================================================================
+   CONTACT - left column fills the height of the inquiry form
+   ========================================================================== */
+.contact-info-col { display: flex; flex-direction: column; }
+.contact-urgent {
+  margin-top: auto;
+  padding: 28px 28px 26px;
+  background: #111111;
+  border: 1px solid rgba(198, 255, 0, 0.4);
+  border-radius: var(--radius-lg);
+}
+.contact-urgent-tag {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C6FF00;
+}
+.contact-urgent h3 { color: #FFFFFF; margin-bottom: 8px; font-size: 1.3rem; }
+html[data-theme] .contact-urgent p { color: #D4D4DA; margin: 0 0 20px; line-height: 1.6; }
+.contact-urgent-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 1024px) {
+  .contact-info-col > div[style*="margin-bottom: 36px"] { margin-bottom: 28px !important; }
+}
+.contact-info-col .section-subtitle { align-self: flex-start; }
+.contact-info-col div[style*="width: 44px"] { flex: 0 0 44px; }
+
+/* ==========================================================================
+   COMPARISON TABLE (tablet 640-1024px): keep a proper 3-column table
+   (overrides the generic stacked-card rule meant for dashboard tables)
+   ========================================================================== */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .table-card .table-responsive:has(.comparison-table) { overflow-x: auto; }
+
+  .table-card .comparison-table {
+    display: table;
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+  .table-card .comparison-table thead {
+    display: table-header-group;
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+  .table-card .comparison-table tbody {
+    display: table-row-group;
+    padding: 0;
+    gap: 0;
+  }
+  .table-card .comparison-table tr {
+    display: table-row;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+  .table-card .comparison-table th {
+    padding: 16px 14px;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    vertical-align: middle;
+    overflow-wrap: anywhere;
+  }
+  .table-card .comparison-table td {
+    display: table-cell;
+    padding: 16px 14px;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--color-gray-200);
+    text-align: center !important;
+    overflow-wrap: anywhere;
+    line-height: 1.45;
+  }
+  .table-card .comparison-table td:first-child { text-align: left !important; }
+  [dir="rtl"] .table-card .comparison-table td:first-child { text-align: right !important; }
+  .table-card .comparison-table tr:last-child td { border-bottom: 0; }
+  .table-card .comparison-table td::before,
+  .table-card .comparison-table td:last-child::before { content: none; display: none; }
+  .table-card .comparison-table td .td-value { display: inline; text-align: inherit; }
+  .table-card .comparison-table td:last-child .td-value { display: inline; }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  .table-card .comparison-table th {
+    white-space: normal !important;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+  .table-card .comparison-table th:first-child { text-align: left; }
+  [dir="rtl"] .table-card .comparison-table th:first-child { text-align: right; }
+  .table-card .comparison-table td:not(:first-child),
+  .table-card .comparison-table td:last-child {
+    text-align: center !important;
+  }
+  .table-card .comparison-table tr:last-child td:last-child { border-bottom: 0; }
+  .table-card .comparison-table td:last-child { border-bottom: 1px solid var(--color-gray-200); }
+  .table-card .comparison-table tr:last-child td { border-bottom: 0; }
+  .table-card .comparison-table td:last-child .td-value { display: inline-block; }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  .table-card .comparison-table td:last-child {
+    display: table-cell !important;
+    margin: 0 !important;
+    padding: 16px 14px !important;
+  }
+}
+
+/* ==========================================================================
+   ALIGNMENT FIX (mobile + tablet) - dashboard bookings & similar content
+   Scoped additions only; nothing above is changed.
+   ========================================================================== */
+
+/* 1) Stacked table cards (<= 1024px): one divider above the action row, not two */
+@media (max-width: 1024px) {
+  .table-card .dashboard-table td:nth-last-child(2) {
+    border-bottom: 0;
+  }
+
+  /* Action buttons grouped in an inline wrapper (View / Reschedule / x):
+     lay them out as one tidy, evenly spaced row inside the card */
+  .table-card .dashboard-table td:last-child .td-value > div[style*="inline-flex"] {
+    display: flex !important;
+    align-items: center;
+    gap: 10px !important;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .table-card .dashboard-table td:last-child .td-value > div[style*="inline-flex"] .btn {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 0;
+    white-space: nowrap;
+  }
+  .table-card .dashboard-table td:last-child .td-value > div[style*="inline-flex"] .btn[data-modal-target="cancel-modal"] {
+    min-width: 44px;
+  }
+}
+
+/* 2) Mobile (< 640px) */
+@media (max-width: 639px) {
+  /* Action row fills the card width: View + Reschedule share space, x stays compact */
+  .table-card .dashboard-table td:last-child .td-value > div[style*="inline-flex"] {
+    flex-wrap: nowrap;
+    justify-content: stretch;
+  }
+  .table-card .dashboard-table td:last-child .td-value > div[style*="inline-flex"] .btn {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .table-card .dashboard-table td:last-child .td-value > div[style*="inline-flex"] .btn[data-modal-target="reschedule-modal"] {
+    flex: 1.6 1 0;
+  }
+  .table-card .dashboard-table td:last-child .td-value > div[style*="inline-flex"] .btn[data-modal-target="cancel-modal"] {
+    flex: 0 0 44px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Filter tabs: even 2-column grid, full-width Book button under it */
+  .dashboard-content div:has(> .booking-filter-tab) {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px !important;
+    width: 100%;
+  }
+  .dashboard-content .booking-filter-tab {
+    width: 100%;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .dashboard-content > div:has(> div > .booking-filter-tab) > a.btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Right-aligned stat blocks (e.g. "Monthly Rate") align with the text above them */
+  .dashboard-content div[style*="justify-content: space-between"] > div[style*="text-align: right"] {
+    text-align: start !important;
+  }
+
+  /* Button rows never run off the screen */
+  .dashboard-content div[style*="display: flex"]:has(> .btn):not(:has(> :not(.btn))) {
+    flex-wrap: wrap;
+  }
+  .dashboard-content div[style*="display: flex"]:has(> .btn):not(:has(> :not(.btn))) > .btn {
+    flex: 1 1 auto;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* Tablet 2-up cards: the left cell of the last data row also drops its bottom line */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .table-card .dashboard-table td:nth-last-child(3):nth-child(odd) {
+    border-bottom: 0;
+  }
+}
+
+/* ==========================================================================
+   ALIGNMENT FIX (mobile) - printable invoice card fits the screen
+   ========================================================================== */
+@media (max-width: 639px) {
+  .dashboard-content > div[style*="max-width: 820px"] {
+    padding: 20px 16px !important;
+    min-width: 0;
+  }
+  /* header: brand block above, invoice number block below, both left-aligned */
+  .dashboard-content > div[style*="max-width: 820px"] > div[style*="justify-content: space-between"]:first-child {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .dashboard-content > div[style*="max-width: 820px"] div[style*="text-align: right"]:not(td) {
+    text-align: start !important;
+  }
+  /* items table: all four columns visible, nothing cut off */
+  .dashboard-content > div[style*="max-width: 820px"] > table {
+    table-layout: fixed;
+    font-size: 0.85rem !important;
+  }
+  .dashboard-content > div[style*="max-width: 820px"] > table th,
+  .dashboard-content > div[style*="max-width: 820px"] > table td {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+    overflow-wrap: anywhere;
+  }
+  .dashboard-content > div[style*="max-width: 820px"] > table th:nth-child(2) { width: 14%; }
+  .dashboard-content > div[style*="max-width: 820px"] > table th:nth-child(3) { width: 26%; }
+  .dashboard-content > div[style*="max-width: 820px"] > table th:nth-child(4) { width: 26%; }
+  /* footer note and Print button stack, button full width */
+  .dashboard-content > div[style*="max-width: 820px"] > div[style*="justify-content: space-between"]:last-child {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+  .dashboard-content > div[style*="max-width: 820px"] > div[style*="justify-content: space-between"]:last-child .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (max-width: 639px) {
+  .dashboard-content > div[style*="max-width: 820px"] > table td:last-child {
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+  .dashboard-content > div[style*="max-width: 820px"] > table tbody tr:last-child td:last-child {
+    font-size: 1rem !important;
+  }
+}
+
+/* Tablet: single action buttons (Invoice etc.) match the size of grouped ones */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .table-card .dashboard-table td:last-child .td-value > .btn {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 0;
+    padding-left: 22px;
+    padding-right: 22px;
+    white-space: nowrap;
+  }
+}
+
+/* Tablet: stat blocks, 3-up info boxes and button rows align cleanly */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .dashboard-content div[style*="justify-content: space-between"] > div[style*="text-align: right"] {
+    text-align: start !important;
+  }
+  /* 3 boxes on a 2-column tablet grid: the odd one out spans the full row */
+  .dashboard-content div[style*="repeat(3, 1fr)"] > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+  .dashboard-content div[style*="display: flex"]:has(> .btn):not(:has(> :not(.btn))):not(:has(> .booking-filter-tab)) > .btn {
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Tablet: action rows (View / Reschedule / x, Invoice, status notes) are centred in the card */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .table-card .dashboard-table td:last-child {
+    text-align: center !important;
+  }
+  .table-card .dashboard-table td:last-child .td-value {
+    justify-content: center;
+    text-align: center;
+  }
+  .table-card .dashboard-table td:last-child .td-value > div[style*="inline-flex"] {
+    justify-content: center;
+  }
+}
